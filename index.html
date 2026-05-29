@@ -274,8 +274,38 @@ section.sec{padding:7rem 0}
 /* Botão glassmorphism */
 .btn-glass{background:rgba(255,255,255,.55);color:var(--roxo-deep);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 10px 30px -12px rgba(95,49,73,.25)}
 .btn-glass:hover{background:rgba(255,255,255,.78);transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(95,49,73,.35)}
-.btn-glass-roxo{background:rgba(131,76,104,.85);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 14px 40px -14px rgba(95,49,73,.45)}
-.btn-glass-roxo:hover{background:rgba(131,76,104,.95);transform:translateY(-3px)}
+
+/* Botão dourado escuro com beam border animado */
+.btn-roxo,.btn-glass-roxo{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:transparent;
+  color:#fff;
+  border:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  box-shadow:0 18px 40px -14px rgba(110,75,30,.5);
+}
+.btn-roxo::before,.btn-glass-roxo::before{
+  content:"";
+  position:absolute;
+  inset:-200%;
+  background:conic-gradient(from 0deg,transparent 0 300deg,rgba(255,238,200,.95) 360deg);
+  animation:beam-spin 4s linear infinite;
+  z-index:-2;
+}
+.btn-roxo::after,.btn-glass-roxo::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  border-radius:100px;
+  background:linear-gradient(135deg,#a87a3a 0%,#7c5520 50%,#a87a3a 100%);
+  z-index:-1;
+}
+.btn-roxo:hover,.btn-glass-roxo:hover{box-shadow:0 26px 50px -14px rgba(110,75,30,.65)}
+.btn-roxo:hover::before,.btn-glass-roxo:hover::before{background:conic-gradient(from 0deg,transparent 0 270deg,rgba(255,248,220,1) 360deg);animation-duration:2.5s}
+@keyframes beam-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /* Marquee selos */
 .selos-marquee{padding:2rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);overflow:hidden}
