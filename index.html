@@ -306,6 +306,50 @@ section.sec{padding:7rem 0}
 .btn-roxo:hover::before,.btn-glass-roxo:hover::before{background:conic-gradient(from 0deg,transparent 0 270deg,rgba(255,248,220,1) 360deg);animation-duration:2.5s}
 @keyframes beam-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
+/* Esporte: duplicados só viram visíveis em mobile (marquee) */
+.esp-dup{display:none}
+
+@media(max-width:880px){
+  /* Esporte vira carrossel horizontal infinito dentro do container dourado */
+  .golden .esp-grid{
+    display:flex!important;
+    grid-template-columns:none!important;
+    gap:1rem;
+    width:max-content!important;
+    animation:espMarquee 28s linear infinite;
+    padding-bottom:.4rem;
+  }
+  .golden .esp-grid:hover{animation-play-state:paused}
+  .esp-dup{display:block}
+  .golden .esp-card{flex:0 0 200px;aspect-ratio:auto}
+  .golden .esp-card img{aspect-ratio:3/4}
+
+  /* Contato cards menores */
+  .cta-contato-grid{gap:.7rem!important;margin-top:1.8rem!important}
+  .cta-contato-grid .glass-card{padding:1rem 1.2rem!important}
+  .cta-contato-grid .ic-c{width:38px!important;height:38px!important;border-radius:10px!important;margin-bottom:.55rem!important}
+  .cta-contato-grid .ic-c svg{width:18px!important;height:18px!important}
+  .cta-contato-grid h4{font-size:.9rem!important;margin-bottom:.25rem!important}
+  .cta-contato-grid p,.cta-contato-grid a{font-size:.85rem!important;line-height:1.4!important}
+}
+@keyframes espMarquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(calc(-50% - .5rem))}
+}
+
+/* Footer mobile: Tratamentos e Navegação lado a lado */
+@media(max-width:640px){
+  .footer-grid{
+    grid-template-columns:1fr 1fr!important;
+    grid-template-areas:"a a" "b c" "d d"!important;
+    gap:2rem;
+  }
+  .footer-grid > div:nth-child(1){grid-area:a}
+  .footer-grid > div:nth-child(2){grid-area:b}
+  .footer-grid > div:nth-child(3){grid-area:c}
+  .footer-grid > div:nth-child(4){grid-area:d}
+}
+
 /* Marquee selos */
 .selos-marquee{padding:2rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);overflow:hidden}
 .selos-track{display:flex;gap:3.5rem;align-items:center;animation:scrollSelo 36s linear infinite;width:max-content}
@@ -348,7 +392,6 @@ section.sec{padding:7rem 0}
 .golden .esp-card::after{display:none}
 .golden .esp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px}
 .golden .esp-card .tag{position:static;display:block;text-align:center;margin-top:.85rem;color:var(--ink)!important;font-family:var(--ff-display);font-weight:700;font-size:.92rem;letter-spacing:.02em}
-@media(max-width:880px){.golden .esp-grid{grid-template-columns:1fr 1fr}}
 
 /* CTA big golden */
 .cta-big-golden{background:linear-gradient(135deg,#e3b46f 0%,#efd0a1 50%,#e3b46f 100%);color:var(--ink);border-radius:36px;padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;margin:5rem auto}
@@ -612,6 +655,10 @@ section.sec{padding:7rem 0}
       <div class="esp-card glass-card"><img src="assets/sp-2.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Hipertrofia</span></div>
       <div class="esp-card glass-card"><img src="assets/sp-3.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Endurance</span></div>
       <div class="esp-card glass-card"><img src="assets/sp-4.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">CrossFit</span></div>
+      <div class="esp-card glass-card esp-dup"><img src="assets/sp-1.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Performance</span></div>
+      <div class="esp-card glass-card esp-dup"><img src="assets/sp-2.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Hipertrofia</span></div>
+      <div class="esp-card glass-card esp-dup"><img src="assets/sp-3.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Endurance</span></div>
+      <div class="esp-card glass-card esp-dup"><img src="assets/sp-4.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">CrossFit</span></div>
     </div>
   </section>
 </div>
