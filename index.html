@@ -136,10 +136,9 @@ section.sec{padding:7rem 0}
 .trat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
 .trat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.9rem;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s;position:relative;overflow:hidden}
 .trat:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--roxo-soft)}
-.trat .ic{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--paper-2),var(--bege-soft));display:grid;place-items:center;margin-bottom:1.3rem;transition:.4s}
-.trat:hover .ic{background:linear-gradient(135deg,var(--roxo),var(--roxo-deep))}
-.trat .ic svg{width:28px;height:28px;stroke:var(--roxo);fill:none;stroke-width:1.8;transition:.4s}
-.trat:hover .ic svg{stroke:#fff}
+.trat .ic{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#a87a3a 0%,#7c5520 50%,#a87a3a 100%);display:grid;place-items:center;margin-bottom:1.3rem;box-shadow:0 10px 22px -10px rgba(110,75,30,.5);transition:.4s}
+.trat:hover .ic{transform:scale(1.05);box-shadow:0 14px 28px -10px rgba(110,75,30,.65)}
+.trat .ic svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.9;transition:.4s}
 .trat h3{font-size:1.18rem;margin-bottom:.7rem;color:var(--ink)}
 .trat p{color:var(--ink-soft);font-size:.96rem;line-height:1.6}
 
@@ -402,8 +401,8 @@ section.sec{padding:7rem 0}
 .cta-big-golden{text-align:center}
 .cta-contato-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:3rem;text-align:left}
 .cta-contato-grid .glass-card{padding:1.6rem 1.4rem}
-.cta-contato-grid .ic-c{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.5);display:grid;place-items:center;margin-bottom:.9rem}
-.cta-contato-grid .ic-c svg{width:22px;height:22px;stroke:var(--roxo);fill:none;stroke-width:2}
+.cta-contato-grid .ic-c{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#a87a3a 0%,#7c5520 50%,#a87a3a 100%);display:grid;place-items:center;margin-bottom:.9rem;box-shadow:0 8px 18px -8px rgba(110,75,30,.5)}
+.cta-contato-grid .ic-c svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2}
 .cta-contato-grid h4{color:var(--ink);margin-bottom:.45rem;font-size:.95rem;font-family:var(--ff-display);font-weight:700;letter-spacing:-.01em}
 .cta-contato-grid p,.cta-contato-grid a{color:var(--ink-soft);font-size:.9rem;line-height:1.55}
 .cta-contato-grid a:hover{color:var(--roxo)}
