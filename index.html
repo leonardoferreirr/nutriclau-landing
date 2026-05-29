@@ -833,11 +833,16 @@ burger.addEventListener('click', () => {
 });
 links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.style.display = ''));
 
-// Reveal on scroll
+// Reveal on scroll (threshold baixo + fallback de segurança)
 const io = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-}), {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+}), {threshold:.05, rootMargin:'0px 0px 0px 0px'});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+// Fallback: depois de 4s, qualquer .rv ainda invisível ganha .in (evita conteúdo preso)
+setTimeout(() => document.querySelectorAll('.rv:not(.in)').forEach(el => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight) el.classList.add('in');
+}), 4000);
 
 // FAQ accordion
 document.querySelectorAll('.faq-item').forEach(item => {
@@ -923,18 +928,18 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   });
 })();
 
-// 4. Fade-in com leve scale nas imagens das fotos premium (ao entrar viewport)
+// 4. Fade-in sutil só na foto hero (única foto crítica) — sem mexer nas outras
 (function(){
   if (reduceMotion) return;
-  const imgs = document.querySelectorAll('.ad-item img, .esp-card img, .sobre-photo img, .hero-photo-bare img');
-  imgs.forEach(img => { img.style.opacity = '0'; img.style.transform = 'scale(1.04)'; img.style.transition = 'opacity 1s var(--ease, ease), transform 1.4s var(--ease, ease)'; });
-  const iio = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    iio.unobserve(e.target);
-    e.target.style.opacity = '1';
-    e.target.style.transform = 'scale(1)';
-  }), {threshold: .15});
-  imgs.forEach(img => iio.observe(img));
+  const img = document.querySelector('.hero-photo-bare img');
+  if (!img) return;
+  img.style.opacity = '0';
+  img.style.transform = 'scale(1.03)';
+  img.style.transition = 'opacity 1s var(--ease, ease), transform 1.4s var(--ease, ease)';
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    img.style.opacity = '1';
+    img.style.transform = 'scale(1)';
+  }));
 })();
 
 // 5. Scroll progressivo do roadmap (linha gradient cresce com scroll)
