@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clau Carvalho · Nutrição personalizada com estratégia, ciência e resultado</title>
+<meta name="description" content="Nutrição clínica e esportiva com a Nutri Clau Carvalho. Plano alimentar individualizado, acompanhamento próximo e resultados sustentáveis. Atendimento presencial em São José dos Campos e online para o mundo.">
+<meta name="theme-color" content="#834c68">
+<meta property="og:title" content="Clau Carvalho · Nutrição personalizada">
+<meta property="og:description" content="Estratégia, ciência e acompanhamento que constroem resultados reais.">
+<link rel="icon" type="image/png" href="assets/logo2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fbfaf7; --paper-2:#f3ede2; --bege:#d9bfa3; --bege-soft:#e9d9c3;
+  --roxo:#834c68; --roxo-deep:#5e3349; --roxo-soft:#a16a87;
+  --dourado:#e3b46f; --dourado-soft:#efd0a1;
+  --ink:#1f1b1e; --ink-soft:#5b4e55; --ink-muted:#8b7f86;
+  --line:#e7dfd2;
+  --shadow-sm:0 4px 16px -8px rgba(95,49,73,.16);
+  --shadow:0 24px 60px -28px rgba(95,49,73,.32);
+  --shadow-deep:0 30px 80px -30px rgba(95,49,73,.5);
+  --radius:24px; --maxw:1240px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --ff-display:"Epilogue","Plus Jakarta Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  --ff-body:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;
+  --ff-editorial:"Fraunces",Georgia,serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--ff-body);color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden;font-feature-settings:"ss01","cv11"}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(100% - 3rem, var(--maxw));margin-inline:auto}
+
+/* Typography */
+h1,h2,h3,h4{font-family:var(--ff-display);font-weight:700;line-height:1.08;letter-spacing:-.024em;color:var(--ink)}
+h1{font-size:clamp(2.5rem,5.6vw,4.4rem);font-weight:800;letter-spacing:-.03em}
+h2{font-size:clamp(2.1rem,4.4vw,3.2rem);font-weight:700}
+h3{font-size:1.35rem;font-weight:700}
+h4{font-size:1.05rem;font-weight:600}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--ff-body);font-weight:600;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--roxo)}
+.eyebrow::before{content:"";width:24px;height:1.5px;background:var(--roxo)}
+.editorial{font-family:var(--ff-editorial);font-style:italic;font-weight:400}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--ff-display);font-weight:600;font-size:.95rem;padding:1.05rem 1.9rem;border-radius:100px;border:none;cursor:pointer;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .3s;white-space:nowrap;letter-spacing:-.005em}
+.btn svg{width:16px;height:16px;transition:transform .4s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-roxo{background:var(--roxo);color:#fff;box-shadow:0 18px 40px -18px rgba(131,76,104,.55)}
+.btn-roxo:hover{background:var(--roxo-deep);transform:translateY(-3px);box-shadow:0 24px 50px -18px rgba(131,76,104,.7)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--roxo);color:var(--roxo);transform:translateY(-3px)}
+.btn-paper{background:var(--paper);color:var(--roxo);border:1.5px solid rgba(255,255,255,.4)}
+.btn-paper:hover{background:#fff;transform:translateY(-3px)}
+
+/* Nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;padding:1.2rem 0;transition:.4s var(--ease)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;background:rgba(251,250,247,.78);backdrop-filter:blur(18px) saturate(150%);border:1px solid var(--line);border-radius:100px;padding:.55rem .6rem .55rem 1.6rem;box-shadow:var(--shadow-sm);transition:.4s}
+.nav.scrolled{padding:.7rem 0}
+.nav.scrolled .nav-inner{background:rgba(251,250,247,.95)}
+.nav .logo{height:38px;width:auto;display:flex;align-items:center;gap:.55rem}
+.nav .logo img{height:38px}
+.nav .logo .nm{font-family:var(--ff-display);font-weight:800;font-size:1.04rem;color:var(--ink);letter-spacing:-.02em}
+.nav-links{display:flex;gap:1.9rem;align-items:center}
+.nav-links a{font-weight:500;font-size:.92rem;color:var(--ink-soft);transition:color .3s}
+.nav-links a:hover{color:var(--roxo)}
+.nav-cta{padding:.7rem 1.35rem;font-size:.86rem}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.4rem}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+
+/* Hero */
+.hero{position:relative;padding:8.5rem 0 5rem;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none;z-index:0}
+.hero-bg .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55}
+.hero-bg .b1{width:520px;height:520px;background:rgba(131,76,104,.16);top:-160px;left:-120px}
+.hero-bg .b2{width:420px;height:420px;background:rgba(227,180,111,.22);bottom:-160px;right:-100px}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+.hero-copy .eyebrow{margin-bottom:1.6rem}
+.hero h1{margin-bottom:1.5rem}
+.hero h1 .hl{color:var(--roxo);font-family:var(--ff-editorial);font-style:italic;font-weight:500}
+.hero p.sub{font-size:1.18rem;color:var(--ink-soft);max-width:34rem;margin-bottom:2.2rem;line-height:1.55}
+.hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
+.hero-mini{display:flex;gap:2rem;flex-wrap:wrap}
+.hero-mini .m{display:flex;align-items:center;gap:.55rem;font-size:.9rem;color:var(--ink-soft);font-weight:500}
+.hero-mini .m svg{width:18px;height:18px;stroke:var(--roxo)}
+.hero-media{position:relative}
+.hero-photo{border-radius:32px;overflow:hidden;box-shadow:var(--shadow-deep);aspect-ratio:4/5;position:relative;z-index:2}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(95,49,73,.15));pointer-events:none}
+.hero-stamp{position:absolute;bottom:-22px;left:-22px;background:var(--roxo);color:#fff;padding:1.1rem 1.4rem;border-radius:18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:.85rem;z-index:3}
+.hero-stamp .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.hero-stamp .ic svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2}
+.hero-stamp .n{font-family:var(--ff-display);font-weight:800;font-size:1.15rem;line-height:1}
+.hero-stamp .l{font-size:.74rem;opacity:.85;margin-top:.2rem;font-weight:500}
+.hero-deco{position:absolute;top:-30px;right:-30px;width:160px;height:160px;border-radius:50%;background:var(--dourado-soft);z-index:1;opacity:.45}
+
+/* Trust mini */
+.trust{padding:2.4rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+.trust-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.trust .lbl{font-family:var(--ff-display);font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-soft)}
+.trust .selos{display:flex;gap:2.2rem;flex-wrap:wrap;align-items:center}
+.trust .selo{display:flex;align-items:center;gap:.5rem;font-size:.88rem;font-weight:600;color:var(--ink)}
+.trust .selo svg{width:18px;height:18px;stroke:var(--roxo);fill:none;stroke-width:2}
+
+/* Sections */
+section.sec{padding:7rem 0}
+.sec-head{max-width:46rem;margin-bottom:3.6rem}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head h2{margin:1rem 0 1rem}
+.sec-head p{color:var(--ink-soft);font-size:1.1rem;line-height:1.6}
+.sec-head h2 .hl{color:var(--roxo);font-family:var(--ff-editorial);font-style:italic;font-weight:500}
+
+/* Pacientes Transformados */
+.trans{background:var(--paper-2);position:relative;overflow:hidden}
+.trans .deco-blob{position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(131,76,104,.07);top:-150px;right:-100px;filter:blur(40px);pointer-events:none}
+.trans-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.trans-counter{text-align:left}
+.trans-counter .big{font-family:var(--ff-display);font-weight:800;font-size:clamp(4.5rem,11vw,7.6rem);line-height:.9;color:var(--roxo);letter-spacing:-.04em}
+.trans-counter .big .plus{color:var(--dourado)}
+.trans-counter .lbl{font-family:var(--ff-display);font-weight:600;font-size:1.4rem;color:var(--ink);margin-top:.6rem;letter-spacing:-.01em}
+.trans-counter .desc{color:var(--ink-soft);margin-top:1.2rem;max-width:24rem;font-size:1.02rem}
+.trans-counter .cta{margin-top:2rem}
+
+.ad-marquee{position:relative;display:flex;gap:1.2rem;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ad-track{display:flex;gap:1.2rem;animation:scrollX 50s linear infinite}
+.ad-track:hover{animation-play-state:paused}
+@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
+.ad-item{flex:0 0 280px;height:380px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}
+.ad-item img{width:100%;height:100%;object-fit:cover}
+.ad-item::after{content:"ANTES · DEPOIS";position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.92);color:var(--roxo);font-family:var(--ff-display);font-weight:700;font-size:.7rem;letter-spacing:.16em;padding:.4rem .8rem;border-radius:100px}
+
+/* Tratamentos */
+.trat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.trat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:2.2rem 1.9rem;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s;position:relative;overflow:hidden}
+.trat:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--roxo-soft)}
+.trat .ic{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,var(--paper-2),var(--bege-soft));display:grid;place-items:center;margin-bottom:1.3rem;transition:.4s}
+.trat:hover .ic{background:linear-gradient(135deg,var(--roxo),var(--roxo-deep))}
+.trat .ic svg{width:28px;height:28px;stroke:var(--roxo);fill:none;stroke-width:1.8;transition:.4s}
+.trat:hover .ic svg{stroke:#fff}
+.trat h3{font-size:1.18rem;margin-bottom:.7rem;color:var(--ink)}
+.trat p{color:var(--ink-soft);font-size:.96rem;line-height:1.6}
+
+/* Sobre Clau */
+.sobre{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%)}
+.sobre-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:4rem;align-items:center}
+.sobre-media{position:relative}
+.sobre-photo{border-radius:32px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5;max-width:440px}
+.sobre-photo img{width:100%;height:100%;object-fit:cover}
+.sobre-tag{position:absolute;bottom:24px;left:24px;background:rgba(251,250,247,.95);backdrop-filter:blur(10px);padding:.9rem 1.2rem;border-radius:14px;font-family:var(--ff-display);font-weight:700;font-size:.92rem;color:var(--roxo);box-shadow:var(--shadow-sm)}
+.sobre-content h2{margin-bottom:1.6rem}
+.sobre-content p{color:var(--ink-soft);font-size:1.05rem;margin-bottom:1.1rem;line-height:1.7}
+.sobre-creds{margin-top:2rem;display:grid;gap:.85rem}
+.cred{display:flex;gap:.85rem;align-items:flex-start}
+.cred svg{width:22px;height:22px;stroke:var(--roxo);fill:none;stroke-width:2;flex-shrink:0;margin-top:2px}
+.cred span{font-size:.98rem;color:var(--ink);font-weight:500}
+.sobre-content .btn{margin-top:2.4rem}
+
+/* Esporte */
+.esp{background:var(--ink);color:#fff;border-radius:40px;margin:5rem auto;max-width:calc(var(--maxw) + 0px);padding:5.5rem 3rem}
+.esp-head{max-width:50rem;margin:0 auto 3rem;text-align:center}
+.esp-head .eyebrow{color:var(--dourado)}
+.esp-head .eyebrow::before{background:var(--dourado)}
+.esp-head h2{color:#fff;margin:1rem 0}
+.esp-head h2 .hl{color:var(--dourado);font-family:var(--ff-editorial);font-style:italic;font-weight:500}
+.esp-head p{color:rgba(255,255,255,.7);font-size:1.08rem}
+.esp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.esp-card{aspect-ratio:3/4;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);position:relative;transition:transform .5s var(--ease)}
+.esp-card:hover{transform:translateY(-6px) scale(1.02)}
+.esp-card img{width:100%;height:100%;object-fit:cover}
+.esp-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6))}
+.esp-card .tag{position:absolute;bottom:18px;left:18px;color:#fff;font-family:var(--ff-display);font-weight:600;font-size:.86rem;letter-spacing:.04em;z-index:2}
+
+/* Passo a Passo */
+.passos-grid{display:grid;gap:1.4rem}
+.passo{display:grid;grid-template-columns:auto 1fr;gap:2.4rem;padding:2rem 2.4rem;background:#fff;border:1px solid var(--line);border-radius:24px;align-items:start;transition:.4s var(--ease)}
+.passo:hover{border-color:var(--roxo-soft);transform:translateX(4px)}
+.passo-n{font-family:var(--ff-display);font-weight:800;font-size:clamp(3rem,5vw,4.4rem);color:var(--roxo);line-height:1;letter-spacing:-.04em;min-width:80px;font-feature-settings:"lnum"}
+.passo-body h3{font-size:1.3rem;margin-bottom:.6rem;color:var(--ink)}
+.passo-body p{color:var(--ink-soft);font-size:1rem;line-height:1.65}
+@media(min-width:880px){
+  .passos-grid{grid-template-columns:1fr 1fr;grid-template-areas:"a a" "b c" "d e"}
+  .passo:nth-child(1){grid-area:a}
+  .passo:nth-child(2){grid-area:b}
+  .passo:nth-child(3){grid-area:c}
+  .passo:nth-child(4){grid-area:d}
+  .passo:nth-child(5){grid-area:e}
+}
+
+/* CTA Grande */
+.cta-big{background:var(--roxo);color:#fff;border-radius:36px;padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;margin:5rem auto}
+.cta-big::before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,.06);top:-200px;left:-150px}
+.cta-big::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(227,180,111,.18);bottom:-180px;right:-100px;filter:blur(20px)}
+.cta-big > *{position:relative;z-index:2}
+.cta-big .eyebrow{color:var(--dourado-soft)}
+.cta-big .eyebrow::before{background:var(--dourado-soft)}
+.cta-big h2{color:#fff;font-size:clamp(2.2rem,5vw,3.4rem);margin:1rem auto;max-width:30rem}
+.cta-big h2 .hl{font-family:var(--ff-editorial);font-style:italic;font-weight:500;color:var(--dourado-soft)}
+.cta-big p{color:rgba(255,255,255,.82);max-width:34rem;margin:0 auto 2.4rem;font-size:1.08rem}
+.cta-big .btn{padding:1.2rem 2.4rem;font-size:1.02rem}
+
+/* Endereço & Horário */
+.contato-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.4rem;margin-bottom:5rem}
+.contato-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:2rem 1.8rem}
+.contato-card .ic{width:48px;height:48px;border-radius:14px;background:var(--paper-2);display:grid;place-items:center;margin-bottom:1.1rem}
+.contato-card .ic svg{width:24px;height:24px;stroke:var(--roxo);fill:none;stroke-width:2}
+.contato-card h4{color:var(--ink);margin-bottom:.5rem;font-size:1rem;font-family:var(--ff-display);font-weight:700;letter-spacing:-.01em}
+.contato-card p,.contato-card a{color:var(--ink-soft);font-size:.95rem;line-height:1.6}
+.contato-card a:hover{color:var(--roxo)}
+
+/* FAQ */
+.faq{max-width:780px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--line);padding:1.4rem 0;transition:.3s}
+.faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--ff-display);font-weight:600;font-size:1.08rem;color:var(--ink);letter-spacing:-.01em;gap:1rem}
+.faq-q .ind{flex-shrink:0;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:.4s;color:var(--roxo);font-size:1.1rem;line-height:1}
+.faq-item.open .faq-q .ind{background:var(--roxo);color:#fff;border-color:var(--roxo);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .5s var(--ease)}
+.faq-a-inner{padding:1.1rem 0 .3rem;color:var(--ink-soft);font-size:.99rem;line-height:1.7}
+
+/* Footer */
+.footer{background:var(--ink);color:rgba(255,255,255,.66);padding:5rem 0 2.5rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.6rem;padding-bottom:3.2rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer .brand{font-family:var(--ff-display);font-weight:800;font-size:1.4rem;color:#fff;margin-bottom:.8rem;letter-spacing:-.02em}
+.footer p{font-size:.94rem;max-width:24rem;line-height:1.6}
+.footer h5{color:#fff;font-family:var(--ff-display);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.2rem}
+.footer ul{list-style:none;display:grid;gap:.65rem}
+.footer a,.footer li{font-size:.94rem;transition:color .3s}
+.footer a:hover{color:#fff}
+.foot-legal{padding-top:2rem;font-size:.8rem;color:rgba(255,255,255,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
+
+/* WhatsApp float */
+.wfloat{position:fixed;bottom:1.8rem;right:1.8rem;z-index:90;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 14px 32px -8px rgba(37,211,102,.55);transition:transform .4s var(--ease)}
+.wfloat:hover{transform:scale(1.08)}
+.wfloat svg{width:32px;height:32px;fill:#fff}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.08s}
+.rv[data-d="2"]{transition-delay:.16s}
+.rv[data-d="3"]{transition-delay:.24s}
+.rv[data-d="4"]{transition-delay:.32s}
+
+/* Responsive */
+@media(max-width:980px){
+  .hero-grid,.trans-grid,.sobre-grid,.contato-grid,.footer-grid{grid-template-columns:1fr;gap:2.6rem}
+  .hero-media,.sobre-photo{max-width:32rem;margin-inline:auto}
+  .trat-grid{grid-template-columns:1fr 1fr}
+  .esp-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  section.sec{padding:5rem 0}
+  .esp{padding:4rem 1.4rem;margin:3rem auto}
+  .cta-big{padding:4rem 1.6rem}
+}
+@media(max-width:640px){
+  .nav-links{display:none}.burger{display:flex}
+  .nav-cta{padding:.6rem 1rem;font-size:.78rem}
+  .hero{padding:7rem 0 3rem}
+  .trat-grid,.esp-grid,.contato-grid,.footer-grid{grid-template-columns:1fr}
+  .passo{padding:1.6rem 1.4rem;grid-template-columns:1fr;gap:.6rem}
+  .passo-n{font-size:2.4rem;min-width:auto}
+  .trust-inner{flex-direction:column;gap:1.2rem;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}}
+
+/* === v2 patches === */
+
+/* Hero foto transparente, sem box */
+.hero-photo-bare{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:540px}
+.hero-photo-bare img{max-width:100%;max-height:640px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 30px 50px rgba(95,49,73,.18))}
+
+/* Botão glassmorphism */
+.btn-glass{background:rgba(255,255,255,.55);color:var(--roxo-deep);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 10px 30px -12px rgba(95,49,73,.25)}
+.btn-glass:hover{background:rgba(255,255,255,.78);transform:translateY(-3px);box-shadow:0 18px 40px -12px rgba(95,49,73,.35)}
+.btn-glass-roxo{background:rgba(131,76,104,.85);color:#fff;border:1px solid rgba(255,255,255,.4);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 14px 40px -14px rgba(95,49,73,.45)}
+.btn-glass-roxo:hover{background:rgba(131,76,104,.95);transform:translateY(-3px)}
+
+/* Marquee selos */
+.selos-marquee{padding:2rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);overflow:hidden}
+.selos-track{display:flex;gap:3.5rem;align-items:center;animation:scrollSelo 36s linear infinite;width:max-content}
+.selos-marquee:hover .selos-track{animation-play-state:paused}
+@keyframes scrollSelo{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 1.75rem))}}
+.selos-marquee .selo{display:flex;align-items:center;gap:.6rem;font-family:var(--ff-display);font-weight:600;font-size:.94rem;color:var(--ink);white-space:nowrap;flex-shrink:0}
+.selos-marquee .selo svg{width:20px;height:20px;stroke:var(--roxo);fill:none;stroke-width:2;flex-shrink:0}
+.selos-marquee .dot{width:6px;height:6px;border-radius:50%;background:var(--dourado);flex-shrink:0}
+
+/* Tratamentos sticky stacked */
+.trat-stack{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:.8rem;padding-bottom:30vh}
+.trat-stack .trat{position:sticky;background:#fff;width:100%;padding:2.4rem 2.6rem;border-radius:28px;border:1px solid var(--line);box-shadow:0 24px 60px -28px rgba(95,49,73,.2);display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start}
+.trat-stack .trat:hover{transform:none}
+.trat-stack .trat .ic{margin-bottom:0;width:64px;height:64px}
+.trat-stack .trat:nth-child(1){top:110px}
+.trat-stack .trat:nth-child(2){top:130px}
+.trat-stack .trat:nth-child(3){top:150px}
+.trat-stack .trat:nth-child(4){top:170px}
+.trat-stack .trat:nth-child(5){top:190px}
+.trat-stack .trat:nth-child(6){top:210px}
+.trat-stack .trat h3{font-size:1.4rem;margin-bottom:.55rem}
+.trat-stack .trat p{font-size:1.02rem;line-height:1.7}
+@media(max-width:880px){
+  .trat-stack .trat{grid-template-columns:1fr;padding:1.8rem 1.6rem}
+  .trat-stack .trat:nth-child(n){top:90px}
+}
+
+/* Golden glass cards (esporte + CTA grande) */
+.golden{background:linear-gradient(135deg,#e3b46f 0%,#efd0a1 50%,#e3b46f 100%);border-radius:40px;margin:5rem auto;color:var(--ink);padding:5.5rem 3rem;position:relative;overflow:hidden}
+.golden::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.25);top:-220px;left:-160px;filter:blur(30px)}
+.golden::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(131,76,104,.12);bottom:-160px;right:-100px;filter:blur(40px)}
+.golden > *{position:relative;z-index:2}
+.golden h2{color:var(--ink)}
+.golden h2 .hl{color:var(--roxo);font-family:var(--ff-editorial);font-style:italic;font-weight:500}
+.golden p{color:var(--ink-soft)}
+.glass-card{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-radius:26px;padding:1.6rem;box-shadow:0 22px 60px -28px rgba(95,49,73,.25);transition:.5s var(--ease)}
+.glass-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.4);box-shadow:0 30px 70px -25px rgba(95,49,73,.35)}
+.golden .esp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.golden .esp-card{aspect-ratio:auto;background:rgba(255,255,255,.28);overflow:visible;box-shadow:0 22px 60px -28px rgba(95,49,73,.25);padding:.85rem;border-radius:24px}
+.golden .esp-card::after{display:none}
+.golden .esp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px}
+.golden .esp-card .tag{position:static;display:block;text-align:center;margin-top:.85rem;color:var(--ink)!important;font-family:var(--ff-display);font-weight:700;font-size:.92rem;letter-spacing:.02em}
+@media(max-width:880px){.golden .esp-grid{grid-template-columns:1fr 1fr}}
+
+/* CTA big golden */
+.cta-big-golden{background:linear-gradient(135deg,#e3b46f 0%,#efd0a1 50%,#e3b46f 100%);color:var(--ink);border-radius:36px;padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;margin:5rem auto}
+.cta-big-golden::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.3);top:-220px;left:-160px;filter:blur(30px)}
+.cta-big-golden::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(131,76,104,.14);bottom:-200px;right:-120px;filter:blur(40px)}
+.cta-big-golden > *{position:relative;z-index:2}
+.cta-big-golden h2{color:var(--ink);font-size:clamp(2.2rem,5vw,3.4rem);margin:0 auto 1rem;max-width:30rem}
+.cta-big-golden h2 .hl{font-family:var(--ff-editorial);font-style:italic;font-weight:500;color:var(--roxo)}
+.cta-big-golden p{color:var(--ink-soft);max-width:34rem;margin:0 auto 2.4rem;font-size:1.08rem}
+
+/* Passos roadmap */
+.roadmap{position:relative;max-width:760px;margin:0 auto;padding-left:60px}
+.roadmap::before{content:"";position:absolute;left:23px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--dourado) 0%,var(--roxo) 100%);border-radius:2px}
+.roadmap .passo{display:block;background:#fff;border:1px solid var(--line);border-radius:22px;padding:1.8rem 2rem;margin-bottom:1.4rem;position:relative;transition:.5s var(--ease)}
+.roadmap .passo::before{content:"";position:absolute;left:-46px;top:30px;width:18px;height:18px;border-radius:50%;background:var(--paper);border:3px solid var(--roxo);box-shadow:0 0 0 4px rgba(131,76,104,.15);transition:.5s var(--ease)}
+.roadmap .passo.in::before{background:var(--roxo);box-shadow:0 0 0 6px rgba(131,76,104,.2)}
+.roadmap .passo:hover{transform:translateX(6px);border-color:var(--roxo-soft);box-shadow:var(--shadow)}
+.roadmap .passo-n{font-family:var(--ff-editorial);font-style:italic;font-weight:500;font-size:clamp(2.2rem,3.6vw,3.1rem);color:var(--roxo);line-height:1;letter-spacing:-.02em;display:block;margin-bottom:.5rem}
+.roadmap .passo-body h3{font-size:1.22rem;margin-bottom:.5rem}
+.roadmap .passo-body p{color:var(--ink-soft);font-size:1rem;line-height:1.65}
+@media(max-width:680px){
+  .roadmap{padding-left:42px}
+  .roadmap::before{left:15px}
+  .roadmap .passo::before{left:-34px;top:24px;width:14px;height:14px}
+  .roadmap .passo{padding:1.4rem 1.4rem}
+}
+
+/* +2.000 em roxo serif italic */
+.big-fraunces{font-family:var(--ff-editorial);font-style:italic;font-weight:500;color:var(--roxo);letter-spacing:-.03em}
+.trans-counter .big-fraunces{font-size:clamp(3.2rem,7.5vw,5.4rem);font-weight:500;line-height:.95}
+
+/* Marquee fonte maior, sem checkmark */
+.selos-marquee .selo{font-size:1.05rem}
+.selos-marquee .selo svg{display:none}
+
+/* Tratamentos: título corrido ao lado do ícone */
+.trat-stack .trat{display:block;padding:2.2rem 2.4rem}
+.trat-head-row{display:flex;align-items:center;gap:1.1rem;margin-bottom:.9rem}
+.trat-stack .trat .ic{margin-bottom:0;flex-shrink:0;width:58px;height:58px}
+.trat-stack .trat .trat-head-row h3{margin:0;font-size:1.35rem;letter-spacing:-.015em}
+
+/* Reduzir espaço final do sticky */
+.trat-stack{padding-bottom:4rem}
+
+/* Dourado mais claro (esporte + CTA grande) */
+.golden,
+.cta-big-golden{background:linear-gradient(135deg,#f0d9a8 0%,#f7e2b7 50%,#f0d9a8 100%)}
+
+/* CTA grande com cards de contato dentro */
+.cta-big-golden{text-align:center}
+.cta-contato-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:3rem;text-align:left}
+.cta-contato-grid .glass-card{padding:1.6rem 1.4rem}
+.cta-contato-grid .ic-c{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.5);display:grid;place-items:center;margin-bottom:.9rem}
+.cta-contato-grid .ic-c svg{width:22px;height:22px;stroke:var(--roxo);fill:none;stroke-width:2}
+.cta-contato-grid h4{color:var(--ink);margin-bottom:.45rem;font-size:.95rem;font-family:var(--ff-display);font-weight:700;letter-spacing:-.01em}
+.cta-contato-grid p,.cta-contato-grid a{color:var(--ink-soft);font-size:.9rem;line-height:1.55}
+.cta-contato-grid a:hover{color:var(--roxo)}
+@media(max-width:880px){.cta-contato-grid{grid-template-columns:1fr;gap:.8rem;margin-top:2.2rem}}
+
+/* Mobile hero ordem */
+@media(max-width:980px){
+  .hero-grid{display:flex;flex-direction:column}
+  .hero-media{order:-1;margin-bottom:1rem}
+  .hero-photo-bare{min-height:auto}
+  .hero-photo-bare img{max-height:420px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#topo" class="logo"><img src="assets/logo.png" alt="Clau Carvalho"></a>
+    <nav class="nav-links">
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#sobre">A nutri</a>
+      <a href="#passos">Como funciona</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="btn btn-roxo nav-cta" target="_blank" rel="noopener">Agendar consulta
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="hero-bg">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy rv">
+      <h1>Nutrição personalizada com <span class="hl">estratégia, ciência</span> e <span class="hl">resultado.</span></h1>
+      <p class="sub">A Nutri Clau Carvalho conduz sua transformação a partir de uma avaliação cuidadosa do seu corpo, do seu metabolismo e da sua rotina. Cada plano é construído pra respeitar como você vive e entregar resultados reais e sustentáveis.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="btn btn-glass-roxo" target="_blank" rel="noopener">Agendar minha consulta
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#tratamentos" class="btn btn-glass">Ver tratamentos</a>
+      </div>
+    </div>
+    <div class="hero-media rv" data-d="1">
+      <div class="hero-photo-bare">
+        <img src="assets/hero-clau.png" alt="Nutricionista Clau Carvalho">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST MARQUEE -->
+<div class="selos-marquee">
+  <div class="selos-track">
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>American College of Sports Medicine</div>
+    <span class="dot"></span>
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Pós-graduada em Nutrição Esportiva</div>
+    <span class="dot"></span>
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Especialização em Saúde Intestinal</div>
+    <span class="dot"></span>
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>+ 2.000 pacientes em 6 anos</div>
+    <span class="dot"></span>
+    <!-- duplicado pra loop suave -->
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>American College of Sports Medicine</div>
+    <span class="dot"></span>
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Pós-graduada em Nutrição Esportiva</div>
+    <span class="dot"></span>
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>Especialização em Saúde Intestinal</div>
+    <span class="dot"></span>
+    <div class="selo"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>+ 2.000 pacientes em 6 anos</div>
+    <span class="dot"></span>
+  </div>
+</div>
+
+<!-- PACIENTES TRANSFORMADOS -->
+<section class="sec trans" id="pacientes">
+  <span class="deco-blob"></span>
+  <div class="wrap">
+    <div class="trans-grid">
+      <div class="trans-counter rv">
+        <div class="big big-fraunces" id="bigCount">+ 2.000</div>
+        <div class="lbl">vidas transformadas</div>
+        <p class="desc">Cada número aqui é uma rotina ajustada, um intestino regulado, uma performance que voltou a subir. Resultados reais de pessoas reais que confiaram no processo.</p>
+        <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20avaliação%20com%20a%20Nutri%20Clau." class="btn btn-roxo cta" target="_blank" rel="noopener">Quero ser a próxima
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="rv" data-d="1">
+        <div class="ad-marquee">
+          <div class="ad-track">
+            <div class="ad-item"><img src="assets/ad-1.jpg" alt="Antes e depois 1" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-2.jpg" alt="Antes e depois 2" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-3.jpg" alt="Antes e depois 3" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-4.jpg" alt="Antes e depois 4" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-5.jpg" alt="Antes e depois 5" loading="lazy"></div>
+            <!-- duplicado pra loop suave -->
+            <div class="ad-item"><img src="assets/ad-1.jpg" alt="" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-2.jpg" alt="" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-3.jpg" alt="" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-4.jpg" alt="" loading="lazy"></div>
+            <div class="ad-item"><img src="assets/ad-5.jpg" alt="" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRATAMENTOS -->
+<section class="sec" id="tratamentos">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <h2>Um plano para <span class="hl">cada corpo</span>, uma estratégia para cada objetivo</h2>
+      <p>Não tem receita pronta. Tem avaliação cuidadosa, planejamento individualizado e acompanhamento próximo, ajustado pra sua rotina, sua história e o que você quer alcançar.</p>
+    </div>
+    <div class="trat-stack">
+      <article class="trat rv">
+        <div class="trat-head-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+          <h3>Emagrecimento e recomposição corporal</h3>
+        </div>
+        <p>Acompanhamento próximo pra perder peso com saúde e construir um emagrecimento duradouro, através de mudança real de estilo de vida.</p>
+      </article>
+      <article class="trat rv">
+        <div class="trat-head-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M6 5v14M18 5v14M2 9h4M2 15h4M18 9h4M18 15h4M6 12h12"/></svg></div>
+          <h3>Hipertrofia e ganho de massa muscular</h3>
+        </div>
+        <p>Nutrição direcionada para evolução estética e melhora de performance. Foco em desempenho, recuperação e resultados visíveis.</p>
+      </article>
+      <article class="trat rv">
+        <div class="trat-head-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <h3>Nutrição esportiva</h3>
+        </div>
+        <p>CrossFit, Hyrox, corrida, lutas e esportes de endurance. Estratégia alimentar e suplementar pra levar o seu treino ao próximo nível.</p>
+      </article>
+      <article class="trat rv">
+        <div class="trat-head-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M19 14c1.5-2 3-3.5 3-6a4 4 0 0 0-8 0c0 2.5 1.5 4 3 6"/><path d="M5 16c-1.5-2-3-3.5-3-6a4 4 0 0 1 8 0c0 2.5-1.5 4-3 6"/><path d="M12 8v8M8 12h8"/></svg></div>
+          <h3>Saúde intestinal</h3>
+        </div>
+        <p>Distensão abdominal, constipação, desconfortos gastrointestinais e melhora do funcionamento intestinal, com protocolo baseado em ciência.</p>
+      </article>
+      <article class="trat rv">
+        <div class="trat-head-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M10 2v6L4 18h16L14 8V2"/><path d="M8 2h8"/></svg></div>
+          <h3>Nutrição para análogos de GLP-1</h3>
+        </div>
+        <p>Acompanhamento para quem usa Mounjaro, Ozempic ou similares: preservar massa muscular, atenuar sintomas e construir hábitos sustentáveis durante e depois do tratamento.</p>
+      </article>
+      <article class="trat rv">
+        <div class="trat-head-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Lipedema e inflamação</h3>
+        </div>
+        <p>Estratégias nutricionais individualizadas pra melhorar sintomas, controlar retenção e devolver qualidade de vida.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE CLAU -->
+<section class="sec sobre" id="sobre">
+  <div class="wrap sobre-grid">
+    <div class="sobre-media rv">
+      <div class="sobre-photo">
+        <img src="assets/sobre-clau.png" alt="Nutri Clau Carvalho">
+      </div>
+    </div>
+    <div class="sobre-content rv" data-d="1">
+      <h2>Nutricionista <span class="hl">clínica e esportiva</span></h2>
+      <p>Pós-graduada em nutrição esportiva, com certificação internacional pela American College of Sports Medicine e especialização em saúde intestinal.</p>
+      <p>Meu trabalho é ajudar pessoas a conquistarem resultados reais através de uma alimentação simples, considerando não só calorias, mas metabolismo, rotina, exames, composição corporal, sintomas clínicos, intestino, comportamento alimentar e os seus objetivos específicos.</p>
+      <p>Em 6 anos atendendo pessoas de vários lugares do mundo, desenvolvi um olhar mais amplo sobre saúde, com foco em cuidado integral.</p>
+
+      <div class="sobre-creds">
+        <div class="cred"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>Pós-graduada em Nutrição Esportiva</span></div>
+        <div class="cred"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>Certificação internacional ACSM</span></div>
+        <div class="cred"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>Especialização em Saúde Intestinal</span></div>
+        <div class="cred"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg><span>+ de 2.000 pacientes atendidos em 6 anos</span></div>
+      </div>
+
+      <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="btn btn-roxo" target="_blank" rel="noopener">Quero falar com a Clau
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ESPORTE -->
+<div class="wrap">
+  <section class="golden rv" id="esporte">
+    <div class="esp-head" style="max-width:50rem;margin:0 auto 3rem;text-align:center">
+      <h2>Nutrição esportiva <span class="hl">que leva ao topo</span></h2>
+      <p style="margin-top:1rem;font-size:1.08rem">Atletas amadores e de alta performance que ajustaram o prato e viram o desempenho subir. CrossFit, Hyrox, corrida, lutas, endurance.</p>
+    </div>
+    <div class="esp-grid">
+      <div class="esp-card glass-card"><img src="assets/sp-1.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Performance</span></div>
+      <div class="esp-card glass-card"><img src="assets/sp-2.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Hipertrofia</span></div>
+      <div class="esp-card glass-card"><img src="assets/sp-3.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Endurance</span></div>
+      <div class="esp-card glass-card"><img src="assets/sp-4.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">CrossFit</span></div>
+    </div>
+  </section>
+</div>
+
+<!-- PASSO A PASSO -->
+<section class="sec" id="passos">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <h2>Passo a passo da <span class="hl">sua transformação</span></h2>
+      <p>Cinco etapas simples, conduzidas com atenção do primeiro contato ao acompanhamento de longo prazo.</p>
+    </div>
+
+    <div class="roadmap">
+      <article class="passo rv">
+        <span class="passo-n">01</span>
+        <div class="passo-body">
+          <h3>Agende sua consulta</h3>
+          <p>Você fala com a equipe direto pelo WhatsApp. O atendimento já começa com atenção e direcionamento desde o primeiro contato, sem formulário interminável.</p>
+        </div>
+      </article>
+      <article class="passo rv">
+        <span class="passo-n">02</span>
+        <div class="passo-body">
+          <h3>O dia da sua consulta é o seu momento</h3>
+          <p>Conversa descontraída e acolhedora, onde a Clau entende sua rotina, seus hábitos, suas preferências e a parte clínica completa (intestino, sono, treino e muito mais). No presencial, também tem avaliação física com bioimpedância, dobras cutâneas e circunferências.</p>
+        </div>
+      </article>
+      <article class="passo rv">
+        <span class="passo-n">03</span>
+        <div class="passo-body">
+          <h3>Inicie seu processo</h3>
+          <p>Com base na avaliação, você monta junto com a Clau um planejamento alimentar 100% individualizado, e sai da consulta com tudo pronto: dieta, suplementação se necessária e orientações pra evoluir.</p>
+        </div>
+      </article>
+      <article class="passo rv">
+        <span class="passo-n">04</span>
+        <div class="passo-body">
+          <h3>Você não estará mais sozinho no processo</h3>
+          <p>Suporte direto com a Clau pelo WhatsApp pra passar pelas dificuldades do dia a dia, ajustar o plano e fazer as orientações necessárias.</p>
+        </div>
+      </article>
+      <article class="passo rv">
+        <span class="passo-n">05</span>
+        <div class="passo-body">
+          <h3>Aqui você conta com a tecnologia</h3>
+          <p>Nossa IA exclusiva te ajuda a ter mais autonomia na rotina, e o app pra pacientes deixa a sua dieta na palma da mão, a qualquer hora.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA GRANDE + CONTATO UNIFICADO -->
+<div class="wrap">
+  <div class="cta-big-golden rv">
+    <h2>Agende sua consulta agora com <span class="hl">um clique</span></h2>
+    <p>Conversa rápida pelo WhatsApp, sem fila, sem burocracia. A gente já te direciona e marca o melhor horário pra você.</p>
+    <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="btn btn-glass-roxo" target="_blank" rel="noopener">Quero agendar pelo WhatsApp
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+
+    <div class="cta-contato-grid">
+      <div class="glass-card">
+        <div class="ic-c"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Endereço</h4>
+        <p>Edifício Helbor Offices<br>Av. São João, 2375 · sala 1608<br>Jd. Aquarius · São José dos Campos · SP</p>
+      </div>
+      <div class="glass-card">
+        <div class="ic-c"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Horário de atendimento</h4>
+        <p>Segunda a sexta<br>08h00 às 18h00</p>
+      </div>
+      <div class="glass-card">
+        <div class="ic-c"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1.2" fill="currentColor"/></svg></div>
+        <h4>Redes</h4>
+        <p><a href="https://www.instagram.com/nutriclaucarvalho/" target="_blank" rel="noopener">@nutriclaucarvalho</a><br><a href="https://www.youtube.com/watch?v=FIL6nph549g" target="_blank" rel="noopener">YouTube</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <h2>Perguntas <span class="hl">frequentes</span></h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item rv" data-d="1">
+        <div class="faq-q">Atende convênios? <span class="ind">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Não atendemos convênios, somente particular.</div></div>
+      </div>
+      <div class="faq-item rv" data-d="1">
+        <div class="faq-q">Preciso seguir dietas restritivas pra ter resultado? <span class="ind">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Não. O foco do tratamento não está em dietas restritivas ou difíceis de manter, e sim em construir uma estratégia alimentar que funcione pra sua realidade, com alimentos simples e fáceis de encontrar. Ao longo do acompanhamento, os ajustes acontecem de forma progressiva, respeitando sua rotina e suas preferências. Isso permite que o processo seja mais leve, sustentável e possível de manter no longo prazo.</div></div>
+      </div>
+      <div class="faq-item rv" data-d="1">
+        <div class="faq-q">Consulta é só em São José dos Campos? <span class="ind">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">As consultas presenciais sim, mas a Clau também atende online em qualquer lugar do mundo.</div></div>
+      </div>
+      <div class="faq-item rv" data-d="1">
+        <div class="faq-q">Consigo nota fiscal pra reembolso com meu plano de saúde? <span class="ind">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Depois da consulta você recebe a nota fiscal pra reembolso.</div></div>
+      </div>
+      <div class="faq-item rv" data-d="1">
+        <div class="faq-q">A partir de quantos anos posso passar em consulta? <span class="ind">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">A Clau atende somente adultos, a partir de 18 anos.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">Clau Carvalho</div>
+        <p>Nutrição clínica e esportiva. Plano individualizado, acompanhamento próximo e resultados sustentáveis. Atendimento presencial em São José dos Campos e online pro mundo todo.</p>
+      </div>
+      <div>
+        <h5>Tratamentos</h5>
+        <ul>
+          <li><a href="#tratamentos">Emagrecimento</a></li>
+          <li><a href="#tratamentos">Hipertrofia</a></li>
+          <li><a href="#tratamentos">Esportiva</a></li>
+          <li><a href="#tratamentos">Saúde intestinal</a></li>
+          <li><a href="#tratamentos">GLP-1</a></li>
+          <li><a href="#tratamentos">Lipedema</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#sobre">A nutri</a></li>
+          <li><a href="#passos">Como funciona</a></li>
+          <li><a href="#esporte">Esporte</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/nutriclaucarvalho/" target="_blank" rel="noopener">Instagram</a></li>
+          <li>São José dos Campos · SP</li>
+          <li>Online · Mundo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 Clau Carvalho · Todos os direitos reservados</span>
+      <span>Nutricionista Clínica e Esportiva</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="wfloat" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L8.8 7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.2.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2"/></svg>
+</a>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+// Burger
+const burger = document.getElementById('burger'), links = document.querySelector('.nav-links');
+burger.addEventListener('click', () => {
+  const o = links.style.display === 'flex';
+  Object.assign(links.style, o ? {display:''} : {display:'flex',position:'absolute',top:'120%',right:'1rem',flexDirection:'column',background:'#fff',padding:'1.4rem 1.8rem',borderRadius:'18px',gap:'1rem',boxShadow:'var(--shadow)'});
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.style.display = ''));
+
+// Reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), {threshold:.14, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!open) {
+      item.classList.add('open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ===========================
+   ANIMAÇÕES PREMIUM
+   =========================== */
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// 1. Count-up no +2.000 com easing cúbico
+(function(){
+  const el = document.getElementById('bigCount');
+  if (!el) return;
+  const target = 2000;
+  const dur = 2200;
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    cio.unobserve(e.target);
+    if (reduceMotion) { el.textContent = '+ 2.000'; return; }
+    const start = performance.now();
+    (function tick(now){
+      const p = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const v = Math.floor(target * eased);
+      el.textContent = '+ ' + v.toLocaleString('pt-BR');
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }), {threshold: .4});
+  cio.observe(el);
+})();
+
+// 2. Parallax sutil dos blobs do hero (segue o mouse)
+(function(){
+  if (reduceMotion) return;
+  const hero = document.querySelector('.hero');
+  const blobs = document.querySelectorAll('.hero-bg .blob');
+  const photo = document.querySelector('.hero-photo-bare img');
+  if (!hero || !blobs.length) return;
+  let raf = null, mx = 0, my = 0;
+  hero.addEventListener('mousemove', e => {
+    const r = hero.getBoundingClientRect();
+    mx = (e.clientX - r.left) / r.width - .5;
+    my = (e.clientY - r.top) / r.height - .5;
+    if (!raf) raf = requestAnimationFrame(apply);
+  });
+  hero.addEventListener('mouseleave', () => { mx = my = 0; if (!raf) raf = requestAnimationFrame(apply); });
+  function apply(){
+    blobs.forEach((b, i) => {
+      const f = (i + 1) * 22;
+      b.style.transform = `translate3d(${mx * f}px, ${my * f}px, 0)`;
+    });
+    if (photo) photo.style.transform = `translate3d(${mx * 10}px, ${my * 10}px, 0)`;
+    raf = null;
+  }
+})();
+
+// 3. Magnetic effect nos botões grandes (CTA hero + CTA glass-roxo)
+(function(){
+  if (reduceMotion) return;
+  const magnetic = document.querySelectorAll('.btn-glass-roxo, .btn-glass');
+  magnetic.forEach(btn => {
+    const strength = 14;
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width/2) / r.width;
+      const y = (e.clientY - r.top - r.height/2) / r.height;
+      btn.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+})();
+
+// 4. Fade-in com leve scale nas imagens das fotos premium (ao entrar viewport)
+(function(){
+  if (reduceMotion) return;
+  const imgs = document.querySelectorAll('.ad-item img, .esp-card img, .sobre-photo img, .hero-photo-bare img');
+  imgs.forEach(img => { img.style.opacity = '0'; img.style.transform = 'scale(1.04)'; img.style.transition = 'opacity 1s var(--ease, ease), transform 1.4s var(--ease, ease)'; });
+  const iio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    iio.unobserve(e.target);
+    e.target.style.opacity = '1';
+    e.target.style.transform = 'scale(1)';
+  }), {threshold: .15});
+  imgs.forEach(img => iio.observe(img));
+})();
+
+// 5. Scroll progressivo do roadmap (linha gradient cresce com scroll)
+(function(){
+  if (reduceMotion) return;
+  const road = document.querySelector('.roadmap');
+  if (!road) return;
+  const line = document.createElement('span');
+  Object.assign(line.style, {position:'absolute',left:'23px',top:'8px',width:'2px',background:'linear-gradient(180deg,var(--roxo-deep),var(--roxo))',borderRadius:'2px',transformOrigin:'top',transform:'scaleY(0)',transition:'transform .25s linear',zIndex:'1',height:'0'});
+  road.appendChild(line);
+  function update(){
+    const r = road.getBoundingClientRect();
+    const start = r.top - window.innerHeight * .55;
+    const end = r.bottom - window.innerHeight * .5;
+    const total = end - start;
+    const p = Math.max(0, Math.min(1, (0 - start) / total));
+    line.style.height = (r.height - 16) + 'px';
+    line.style.transform = `scaleY(${p})`;
+  }
+  addEventListener('scroll', update, {passive: true});
+  update();
+})();
+</script>
+</body>
+</html>
