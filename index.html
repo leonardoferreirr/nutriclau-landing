@@ -280,6 +280,14 @@ section.sec{padding:7rem 0}
 /* Hero foto transparente, sem box */
 .hero-photo-bare{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:540px}
 .hero-photo-bare img{max-width:100%;max-height:640px;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 30px 50px rgba(95,49,73,.18))}
+/* Desktop: alinhar base da foto com o final da seção hero */
+@media(min-width:881px){
+  .hero{padding-bottom:0}
+  .hero-grid{align-items:end}
+  .hero-copy{padding-bottom:5rem}
+  .hero-photo-bare{min-height:0;align-self:end}
+  .hero-photo-bare img{max-height:none;width:100%;display:block;filter:drop-shadow(0 30px 50px rgba(95,49,73,.12))}
+}
 
 /* Botão glassmorphism */
 .btn-glass{background:rgba(255,255,255,.55);color:var(--roxo-deep);border:1px solid rgba(255,255,255,.7);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);box-shadow:0 10px 30px -12px rgba(95,49,73,.25)}
