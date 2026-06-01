@@ -389,27 +389,30 @@ section.sec{padding:7rem 0}
 }
 
 /* Parallax sections (esporte + CTA grande) — foto fixa edge-to-edge, texto rola por cima */
-.golden,
-.cta-big-golden{
+.parallax-section{
   position:relative;color:#fff;
-  width:100%;margin:0;padding:7rem 0;
+  width:100%;margin:0;
   border-radius:0;overflow:hidden;
   background-color:#3a2e26;
+}
+/* Desktop: background-attachment:fixed na própria section */
+.golden{background-image:url('assets/bg-esporte-desktop.jpg')}
+.cta-big-golden{background-image:url('assets/bg-cta-desktop.jpg')}
+.parallax-section{
   background-repeat:no-repeat;background-size:cover;background-position:center;
   background-attachment:fixed;
 }
-.golden{background-image:url('assets/bg-esporte-desktop.jpg')}
-.cta-big-golden{background-image:url('assets/bg-cta-desktop.jpg')}
-.golden::before,
-.cta-big-golden::before{
-  content:"";position:absolute;inset:0;
+/* Camada bg sticky usada SÓ no mobile (overrides em @media abaixo) */
+.parallax-bg{display:none}
+.parallax-section::before{
+  content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(28,18,12,.42) 0%,rgba(28,18,12,.32) 50%,rgba(28,18,12,.5) 100%);
   pointer-events:none;
 }
-.golden > *,
-.cta-big-golden > *{position:relative;z-index:2}
+.parallax-content{position:relative;z-index:2;padding:7rem 0}
 .golden h2,
 .cta-big-golden h2{color:#fff;font-size:clamp(2.2rem,5vw,3.4rem);margin:0 auto 1rem;max-width:30rem;text-align:center}
+.golden h2{max-width:64rem}
 .golden h2 .hl,
 .cta-big-golden h2 .hl{color:#fff;font-family:var(--ff-editorial);font-style:italic;font-weight:500;opacity:.94}
 .golden p,
@@ -434,11 +437,36 @@ section.sec{padding:7rem 0}
 .golden .esp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px}
 .golden .esp-card .tag{position:static;display:block;text-align:center;margin-top:.85rem;color:#fff!important;font-family:var(--ff-display);font-weight:700;font-size:.92rem;letter-spacing:.02em}
 
-/* iOS Safari não suporta background-attachment:fixed bem — fallback scroll normal no mobile */
+/* Mobile: iOS Safari não suporta background-attachment:fixed.
+   Truque: a section perde a background dela, e o .parallax-bg vira
+   um filho sticky que segura a foto fixa enquanto a section rola.
+   overflow:hidden quebra sticky — tem que virar visible no mobile. */
 @media(max-width:880px){
-  .golden{background-image:url('assets/bg-esporte-mobile.jpg');background-attachment:scroll}
-  .cta-big-golden{background-image:url('assets/bg-cta-mobile.jpg');background-attachment:scroll}
+  .parallax-section{
+    background-image:none!important;
+    background-attachment:scroll;
+    overflow:clip; /* permite sticky filho E corta overflow. iOS 16+ */
+    min-height:100vh; /* garante altura suficiente pro efeito ficar visível */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .parallax-bg{
+    display:block;
+    position:sticky;top:0;
+    height:100vh;
+    margin-bottom:-100vh;
+    z-index:0;
+    background-size:cover;background-position:center;background-repeat:no-repeat;
+    flex-shrink:0;
+  }
+  .golden .parallax-bg{background-image:url('assets/bg-esporte-mobile.jpg')}
+  .cta-big-golden .parallax-bg{background-image:url('assets/bg-cta-mobile.jpg')}
 }
+
+/* Quebra de linha do título esporte: só desktop */
+.d-only{display:inline}
+@media(max-width:680px){.d-only{display:none}}
 
 /* Passos roadmap */
 .roadmap{position:relative;max-width:760px;margin:0 auto;padding-left:60px}
@@ -646,10 +674,11 @@ section.sec{padding:7rem 0}
 </section>
 
 <!-- ESPORTE -->
-<section class="golden rv" id="esporte">
-  <div class="wrap">
-    <div class="esp-head" style="max-width:50rem;margin:0 auto 3rem;text-align:center">
-      <h2>Nutrição esportiva <span class="hl">que leva ao topo</span></h2>
+<section class="golden rv parallax-section" id="esporte">
+  <div class="parallax-bg"></div>
+  <div class="wrap parallax-content">
+    <div class="esp-head" style="max-width:68rem;margin:0 auto 3rem;text-align:center">
+      <h2 style="white-space:normal">Nutrição esportiva<br class="d-only"><span class="hl">que leva ao topo</span></h2>
     </div>
     <div class="esp-grid">
       <div class="esp-card glass-card"><img src="assets/sp-1.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Performance</span></div>
@@ -712,8 +741,9 @@ section.sec{padding:7rem 0}
 </section>
 
 <!-- CTA GRANDE + CONTATO UNIFICADO -->
-<section class="cta-big-golden rv">
-  <div class="wrap">
+<section class="cta-big-golden rv parallax-section">
+  <div class="parallax-bg"></div>
+  <div class="wrap parallax-content">
     <h2>Agende sua consulta agora mesmo com <span class="hl">1 clique</span></h2>
     <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="btn btn-glass-roxo" target="_blank" rel="noopener" style="margin-top:1.5rem">Agendar minha consulta
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
