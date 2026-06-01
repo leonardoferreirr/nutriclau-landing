@@ -388,10 +388,12 @@ section.sec{padding:7rem 0}
   .trat-stack .trat:nth-child(n){top:90px}
 }
 
-/* Parallax sections (esporte + CTA grande) — foto fixa, texto rola por cima */
+/* Parallax sections (esporte + CTA grande) — foto fixa edge-to-edge, texto rola por cima */
 .golden,
 .cta-big-golden{
-  position:relative;color:#fff;border-radius:40px;margin:5rem auto;padding:5.5rem 3rem;overflow:hidden;
+  position:relative;color:#fff;
+  width:100%;margin:0;padding:7rem 0;
+  border-radius:0;overflow:hidden;
   background-color:#3a2e26;
   background-repeat:no-repeat;background-size:cover;background-position:center;
   background-attachment:fixed;
@@ -644,8 +646,8 @@ section.sec{padding:7rem 0}
 </section>
 
 <!-- ESPORTE -->
-<div class="wrap">
-  <section class="golden rv" id="esporte">
+<section class="golden rv" id="esporte">
+  <div class="wrap">
     <div class="esp-head" style="max-width:50rem;margin:0 auto 3rem;text-align:center">
       <h2>Nutrição esportiva <span class="hl">que leva ao topo</span></h2>
     </div>
@@ -659,8 +661,8 @@ section.sec{padding:7rem 0}
       <div class="esp-card glass-card esp-dup"><img src="assets/sp-3.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Endurance</span></div>
       <div class="esp-card glass-card esp-dup"><img src="assets/sp-4.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">CrossFit</span></div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 
 <!-- PASSO A PASSO -->
 <section class="sec" id="passos">
@@ -710,8 +712,8 @@ section.sec{padding:7rem 0}
 </section>
 
 <!-- CTA GRANDE + CONTATO UNIFICADO -->
-<div class="wrap">
-  <div class="cta-big-golden rv">
+<section class="cta-big-golden rv">
+  <div class="wrap">
     <h2>Agende sua consulta agora mesmo com <span class="hl">1 clique</span></h2>
     <a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="btn btn-glass-roxo" target="_blank" rel="noopener" style="margin-top:1.5rem">Agendar minha consulta
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -745,7 +747,7 @@ section.sec{padding:7rem 0}
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- FAQ -->
 <section class="sec" id="faq" style="background:var(--paper-2)">
