@@ -442,23 +442,48 @@ section.sec{padding:7rem 0}
    um filho sticky que segura a foto fixa enquanto a section rola.
    overflow:hidden quebra sticky — tem que virar visible no mobile. */
 @media(max-width:880px){
+  /* Mobile parallax via fixed bg controlado por JS.
+     A foto fica fixed COBRINDO viewport (z-index:-1) o tempo todo,
+     atrás do bg-color das sections normais (paper opaco).
+     Section parallax é transparente — abre uma "janela" onde a foto
+     fixa aparece. Sections normais (sec, hero, footer) cobrem o
+     resto da page com bg sólido. */
+  body{background:transparent}
   .parallax-section{
+    background:transparent!important;
     background-image:none!important;
-    background-attachment:scroll;
-    overflow:clip; /* permite sticky filho E corta overflow. iOS 16+ */
-    min-height:100vh; /* garante altura suficiente pro efeito ficar visível */
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    overflow:visible!important;
+    min-height:auto!important;
+    display:block!important;
+    position:relative;
   }
-  .parallax-bg{
+  .parallax-section::before{display:none} /* gradient overlay sai daqui, vai pro bg */
+  .parallax-content{position:relative;z-index:2;background:transparent}
+
+  /* Sections normais opacas pra cobrir a foto fixed onde NÃO é parallax */
+  .hero{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);position:relative;z-index:1}
+  .sec{background:var(--paper);position:relative;z-index:1}
+  .trans{background:var(--paper-2)!important;position:relative;z-index:1}
+  .sobre{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%)!important;position:relative;z-index:1}
+  #faq{background:var(--paper-2)!important;position:relative;z-index:1}
+  footer{background:var(--ink);position:relative;z-index:1}
+  .trust,.selos-marquee{background:var(--paper-2);position:relative;z-index:1}
+
+  /* parallax-bg só vira fixed quando JS adiciona is-on */
+  .parallax-bg{display:none}
+  .parallax-bg.is-on{
     display:block;
-    position:sticky;top:0;
-    height:100vh;
-    margin-bottom:-100vh;
-    z-index:0;
+    position:fixed;
+    inset:0;
+    width:100vw;height:100vh;
+    z-index:-1;
     background-size:cover;background-position:center;background-repeat:no-repeat;
-    flex-shrink:0;
+    pointer-events:none;
+  }
+  /* overlay escuro acompanha o bg fixed */
+  .parallax-bg.is-on::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(28,18,12,.42) 0%,rgba(28,18,12,.32) 50%,rgba(28,18,12,.5) 100%);
   }
   .golden .parallax-bg{background-image:url('assets/bg-esporte-mobile.jpg')}
   .cta-big-golden .parallax-bg{background-image:url('assets/bg-cta-mobile.jpg')}
@@ -1003,6 +1028,29 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
   addEventListener('scroll', update, {passive: true});
   update();
+})();
+
+// Mobile parallax: foto fixed cobre viewport enquanto section parallax está visível
+(function(){
+  const mq = window.matchMedia('(max-width: 880px)');
+  const sections = [...document.querySelectorAll('.parallax-section')];
+  function tick(){
+    if(!mq.matches){
+      sections.forEach(s=>s.querySelector('.parallax-bg')?.classList.remove('is-on'));
+      return;
+    }
+    sections.forEach(s=>{
+      const bg = s.querySelector('.parallax-bg');
+      if(!bg) return;
+      const r = s.getBoundingClientRect();
+      const visible = r.bottom > 0 && r.top < window.innerHeight;
+      bg.classList.toggle('is-on', visible);
+    });
+  }
+  addEventListener('scroll', tick, {passive:true});
+  addEventListener('resize', tick);
+  mq.addEventListener?.('change', tick);
+  tick();
 })();
 </script>
 </body>
