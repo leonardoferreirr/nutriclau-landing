@@ -132,9 +132,8 @@ section.sec{padding:7rem 0}
 .ad-track{display:flex;gap:1.2rem;animation:scrollX 50s linear infinite}
 .ad-track:hover{animation-play-state:paused}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
-.ad-item{flex:0 0 280px;height:380px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative}
-.ad-item img{width:100%;height:100%;object-fit:cover}
-.ad-item::after{content:"ANTES · DEPOIS";position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.92);color:var(--roxo);font-family:var(--ff-display);font-weight:700;font-size:.7rem;letter-spacing:.16em;padding:.4rem .8rem;border-radius:100px}
+.ad-item{flex:0 0 440px;aspect-ratio:995/462;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#fff}
+.ad-item img{width:100%;height:100%;object-fit:cover;display:block}
 
 /* Tratamentos */
 .trat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
@@ -234,9 +233,17 @@ section.sec{padding:7rem 0}
 .foot-legal{padding-top:2rem;font-size:.8rem;color:rgba(255,255,255,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem}
 
 /* WhatsApp float */
-.wfloat{position:fixed;bottom:1.8rem;right:1.8rem;z-index:90;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 14px 32px -8px rgba(37,211,102,.55);transition:transform .4s var(--ease)}
-.wfloat:hover{transform:scale(1.08)}
+.wfloat{position:fixed;bottom:1.8rem;right:1.8rem;z-index:90;display:inline-flex;align-items:center;gap:0;background:#25d366;border-radius:100px;box-shadow:0 16px 36px -10px rgba(37,211,102,.55);transition:transform .4s var(--ease),box-shadow .4s var(--ease);padding:0;overflow:visible}
+.wfloat:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 22px 48px -10px rgba(37,211,102,.7)}
+.wfloat .wfloat__icon{width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;flex-shrink:0;box-shadow:0 0 0 4px rgba(37,211,102,.18);position:relative;z-index:2}
 .wfloat svg{width:32px;height:32px;fill:#fff}
+.wfloat__label{display:inline-flex;flex-direction:column;line-height:1.05;color:#fff;font-family:var(--ff-display);font-weight:800;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;padding:0 1.4rem 0 .9rem;white-space:nowrap}
+.wfloat__label small{font-weight:600;font-size:.72rem;letter-spacing:.16em;opacity:.85;text-transform:uppercase;font-family:var(--ff-body)}
+@media (max-width:680px){
+  .wfloat__label{display:none}
+  .wfloat{background:transparent;box-shadow:none}
+  .wfloat:hover{transform:scale(1.06)}
+}
 
 /* Reveal */
 .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -381,30 +388,55 @@ section.sec{padding:7rem 0}
   .trat-stack .trat:nth-child(n){top:90px}
 }
 
-/* Golden glass cards (esporte + CTA grande) */
-.golden{background:linear-gradient(135deg,#e3b46f 0%,#efd0a1 50%,#e3b46f 100%);border-radius:40px;margin:5rem auto;color:var(--ink);padding:5.5rem 3rem;position:relative;overflow:hidden}
-.golden::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.25);top:-220px;left:-160px;filter:blur(30px)}
-.golden::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(131,76,104,.12);bottom:-160px;right:-100px;filter:blur(40px)}
-.golden > *{position:relative;z-index:2}
-.golden h2{color:var(--ink)}
-.golden h2 .hl{color:var(--roxo);font-family:var(--ff-editorial);font-style:italic;font-weight:500}
-.golden p{color:var(--ink-soft)}
-.glass-card{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border-radius:26px;padding:1.6rem;box-shadow:0 22px 60px -28px rgba(95,49,73,.25);transition:.5s var(--ease)}
-.glass-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.4);box-shadow:0 30px 70px -25px rgba(95,49,73,.35)}
+/* Parallax sections (esporte + CTA grande) — foto fixa, texto rola por cima */
+.golden,
+.cta-big-golden{
+  position:relative;color:#fff;border-radius:40px;margin:5rem auto;padding:5.5rem 3rem;overflow:hidden;
+  background-color:#3a2e26;
+  background-repeat:no-repeat;background-size:cover;background-position:center;
+  background-attachment:fixed;
+}
+.golden{background-image:url('assets/bg-esporte-desktop.jpg')}
+.cta-big-golden{background-image:url('assets/bg-cta-desktop.jpg')}
+.golden::before,
+.cta-big-golden::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(28,18,12,.42) 0%,rgba(28,18,12,.32) 50%,rgba(28,18,12,.5) 100%);
+  pointer-events:none;
+}
+.golden > *,
+.cta-big-golden > *{position:relative;z-index:2}
+.golden h2,
+.cta-big-golden h2{color:#fff;font-size:clamp(2.2rem,5vw,3.4rem);margin:0 auto 1rem;max-width:30rem;text-align:center}
+.golden h2 .hl,
+.cta-big-golden h2 .hl{color:#fff;font-family:var(--ff-editorial);font-style:italic;font-weight:500;opacity:.94}
+.golden p,
+.cta-big-golden p{color:rgba(255,255,255,.86);max-width:34rem;margin:0 auto 2.4rem;font-size:1.08rem}
+
+/* Glass cards: tom translucido escuro (cor da foto), não branco */
+.glass-card{
+  background:rgba(20,16,14,.32);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(14px) saturate(130%);
+  -webkit-backdrop-filter:blur(14px) saturate(130%);
+  border-radius:26px;padding:1.6rem;
+  box-shadow:0 22px 60px -28px rgba(0,0,0,.5);
+  transition:.5s var(--ease);
+  color:#fff;
+}
+.glass-card:hover{transform:translateY(-6px);background:rgba(20,16,14,.46);box-shadow:0 30px 70px -25px rgba(0,0,0,.6)}
+
 .golden .esp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.golden .esp-card{aspect-ratio:auto;background:rgba(255,255,255,.28);overflow:visible;box-shadow:0 22px 60px -28px rgba(95,49,73,.25);padding:.85rem;border-radius:24px}
+.golden .esp-card{aspect-ratio:auto;background:rgba(20,16,14,.32);overflow:visible;box-shadow:0 22px 60px -28px rgba(0,0,0,.55);padding:.85rem;border-radius:24px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .golden .esp-card::after{display:none}
 .golden .esp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px}
-.golden .esp-card .tag{position:static;display:block;text-align:center;margin-top:.85rem;color:var(--ink)!important;font-family:var(--ff-display);font-weight:700;font-size:.92rem;letter-spacing:.02em}
+.golden .esp-card .tag{position:static;display:block;text-align:center;margin-top:.85rem;color:#fff!important;font-family:var(--ff-display);font-weight:700;font-size:.92rem;letter-spacing:.02em}
 
-/* CTA big golden */
-.cta-big-golden{background:linear-gradient(135deg,#e3b46f 0%,#efd0a1 50%,#e3b46f 100%);color:var(--ink);border-radius:36px;padding:5rem 3rem;text-align:center;position:relative;overflow:hidden;margin:5rem auto}
-.cta-big-golden::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.3);top:-220px;left:-160px;filter:blur(30px)}
-.cta-big-golden::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(131,76,104,.14);bottom:-200px;right:-120px;filter:blur(40px)}
-.cta-big-golden > *{position:relative;z-index:2}
-.cta-big-golden h2{color:var(--ink);font-size:clamp(2.2rem,5vw,3.4rem);margin:0 auto 1rem;max-width:30rem}
-.cta-big-golden h2 .hl{font-family:var(--ff-editorial);font-style:italic;font-weight:500;color:var(--roxo)}
-.cta-big-golden p{color:var(--ink-soft);max-width:34rem;margin:0 auto 2.4rem;font-size:1.08rem}
+/* iOS Safari não suporta background-attachment:fixed bem — fallback scroll normal no mobile */
+@media(max-width:880px){
+  .golden{background-image:url('assets/bg-esporte-mobile.jpg');background-attachment:scroll}
+  .cta-big-golden{background-image:url('assets/bg-cta-mobile.jpg');background-attachment:scroll}
+}
 
 /* Passos roadmap */
 .roadmap{position:relative;max-width:760px;margin:0 auto;padding-left:60px}
@@ -440,19 +472,15 @@ section.sec{padding:7rem 0}
 /* Reduzir espaço final do sticky */
 .trat-stack{padding-bottom:4rem}
 
-/* Dourado mais claro (esporte + CTA grande) */
-.golden,
-.cta-big-golden{background:linear-gradient(135deg,#f0d9a8 0%,#f7e2b7 50%,#f0d9a8 100%)}
-
 /* CTA grande com cards de contato dentro */
 .cta-big-golden{text-align:center}
 .cta-contato-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:3rem;text-align:left}
 .cta-contato-grid .glass-card{padding:1.6rem 1.4rem}
-.cta-contato-grid .ic-c{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#a87a3a 0%,#7c5520 50%,#a87a3a 100%);display:grid;place-items:center;margin-bottom:.9rem;box-shadow:0 8px 18px -8px rgba(110,75,30,.5)}
+.cta-contato-grid .ic-c{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e3b46f 0%,#a87a3a 50%,#e3b46f 100%);display:grid;place-items:center;margin-bottom:.9rem;box-shadow:0 8px 18px -8px rgba(0,0,0,.45)}
 .cta-contato-grid .ic-c svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2}
-.cta-contato-grid h4{color:var(--ink);margin-bottom:.45rem;font-size:.95rem;font-family:var(--ff-display);font-weight:700;letter-spacing:-.01em}
-.cta-contato-grid p,.cta-contato-grid a{color:var(--ink-soft);font-size:.9rem;line-height:1.55}
-.cta-contato-grid a:hover{color:var(--roxo)}
+.cta-contato-grid h4{color:#fff;margin-bottom:.45rem;font-size:.95rem;font-family:var(--ff-display);font-weight:700;letter-spacing:-.01em}
+.cta-contato-grid p,.cta-contato-grid a{color:rgba(255,255,255,.82);font-size:.9rem;line-height:1.55}
+.cta-contato-grid a:hover{color:#fff}
 @media(max-width:880px){.cta-contato-grid{grid-template-columns:1fr;gap:.8rem;margin-top:2.2rem}}
 
 /* Mobile hero ordem */
@@ -522,12 +550,20 @@ section.sec{padding:7rem 0}
           <div class="ad-item"><img src="assets/ad-3.jpg" alt="Antes e depois 3" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-4.jpg" alt="Antes e depois 4" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-5.jpg" alt="Antes e depois 5" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-6.jpg" alt="Antes e depois 6" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-7.jpg" alt="Antes e depois 7" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-8.jpg" alt="Antes e depois 8" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-9.jpg" alt="Antes e depois 9" loading="lazy"></div>
           <!-- duplicado pra loop suave -->
           <div class="ad-item"><img src="assets/ad-1.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-2.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-3.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-4.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-5.jpg" alt="" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-6.jpg" alt="" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-7.jpg" alt="" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-8.jpg" alt="" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-9.jpg" alt="" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -787,8 +823,11 @@ section.sec{padding:7rem 0}
   </div>
 </footer>
 
-<a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="wfloat" aria-label="WhatsApp" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L8.8 7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.2.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2"/></svg>
+<a href="https://wa.me/5500000000000?text=Olá!%20Quero%20agendar%20uma%20consulta%20com%20a%20Nutri%20Clau." class="wfloat" aria-label="Agendar consulta pelo WhatsApp" target="_blank" rel="noopener">
+  <span class="wfloat__icon">
+    <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L8.8 7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2 0 1.3.9 2.5 1.1 2.7.2.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2"/></svg>
+  </span>
+  <span class="wfloat__label"><span>Agendar</span><span>consulta</span></span>
 </a>
 
 <script>
