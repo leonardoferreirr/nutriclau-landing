@@ -456,9 +456,40 @@ section.sec{padding:7rem 0}
   }
   .golden{background-image:url('assets/bg-esporte-mobile.jpg')!important}
   .cta-big-golden{background-image:url('assets/bg-cta-mobile.jpg')!important}
-  /* parallax-bg auxiliar do approach JS não é mais usado em mobile */
   .parallax-bg{display:none}
 }
+
+/* iOS Safari ignora background-attachment:fixed. Pra iOS, .is-ios é
+   adicionado no <html> via JS, e aí trocamos pra position:fixed no
+   .parallax-bg controlado por classe is-on (atualizada via scroll). */
+.is-ios .parallax-section{background-image:none!important;background-attachment:scroll!important;background-color:transparent}
+.is-ios body{background:transparent}
+.is-ios .hero,
+.is-ios .sec,
+.is-ios .sobre,
+.is-ios .trust,
+.is-ios .selos-marquee,
+.is-ios footer{position:relative;z-index:1}
+.is-ios .hero{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%)}
+.is-ios .sec{background:var(--paper)}
+.is-ios .trans{background:var(--paper-2)!important;position:relative;z-index:1}
+.is-ios .sobre{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%)!important;position:relative;z-index:1}
+.is-ios #faq{background:var(--paper-2)!important;position:relative;z-index:1}
+.is-ios footer{background:var(--ink)}
+.is-ios .parallax-content{position:relative;z-index:2;background:transparent}
+.is-ios .parallax-bg{display:none}
+.is-ios .parallax-bg.is-on{
+  display:block;
+  position:fixed;
+  inset:0;
+  width:100vw;height:100vh;
+  z-index:-1;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  pointer-events:none;
+}
+.is-ios .golden .parallax-bg{background-image:url('assets/bg-esporte-mobile.jpg')}
+.is-ios .cta-big-golden .parallax-bg{background-image:url('assets/bg-cta-mobile.jpg')}
+.is-ios .parallax-section::before{position:absolute;height:100%}
 
 /* Quebra de linha do título esporte: só desktop */
 .d-only{display:inline}
@@ -999,6 +1030,32 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
   addEventListener('scroll', update, {passive: true});
   update();
+})();
+
+// iOS Safari fallback pro parallax — bg-attachment:fixed bugha em iOS.
+// SE for iPhone/iPad, troca pra position:fixed controlado por scroll.
+(function(){
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!isIOS) return;
+  document.documentElement.classList.add('is-ios');
+  const sections = [...document.querySelectorAll('.parallax-section')];
+  function tick(){
+    if (window.innerWidth > 880) {
+      sections.forEach(s=>s.querySelector('.parallax-bg')?.classList.remove('is-on'));
+      return;
+    }
+    sections.forEach(s=>{
+      const bg = s.querySelector('.parallax-bg');
+      if(!bg) return;
+      const r = s.getBoundingClientRect();
+      const visible = r.bottom > 0 && r.top < window.innerHeight;
+      bg.classList.toggle('is-on', visible);
+    });
+  }
+  addEventListener('scroll', tick, {passive:true});
+  addEventListener('resize', tick);
+  tick();
 })();
 
 </script>
