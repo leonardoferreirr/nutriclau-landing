@@ -133,6 +133,7 @@ section.sec{padding:7rem 0}
 .rede-link .mini-ic{width:14px;height:14px;flex-shrink:0;fill:currentColor;display:block}
 .ad-track{display:flex;gap:1.2rem;animation:scrollX 50s linear infinite}
 .ad-track:hover{animation-play-state:paused}
+@media(max-width:880px){.ad-track{animation-duration:22s}}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
 .ad-item{flex:0 0 440px;aspect-ratio:995/462;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#fff}
 .ad-item img{width:100%;height:100%;object-fit:cover;display:block}
@@ -478,7 +479,7 @@ section.sec{padding:7rem 0}
 @media(max-width:880px){
   .parallax-section{
     background-attachment:fixed;
-    background-position:center 76px;
+    background-position:center 140px;
   }
   .golden{background-image:url('assets/bg-esporte-mobile.jpg')!important}
   .cta-big-golden{background-image:url('assets/bg-cta-mobile.jpg')!important}
