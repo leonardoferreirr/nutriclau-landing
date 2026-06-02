@@ -347,8 +347,8 @@ section.sec{padding:7rem 0}
   .cta-contato-grid p,.cta-contato-grid a{font-size:.85rem!important;line-height:1.4!important}
 }
 @keyframes espMarquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(calc(-50% - .5rem))}
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
 }
 
 /* Footer mobile: Tratamentos e Navegação lado a lado */
@@ -407,7 +407,7 @@ section.sec{padding:7rem 0}
 .golden{background-image:url('assets/bg-esporte-desktop.jpg')}
 .cta-big-golden{background-image:url('assets/bg-cta-desktop.jpg')}
 .parallax-section{
-  background-repeat:no-repeat;background-size:cover;background-position:center 35%;
+  background-repeat:no-repeat;background-size:cover;background-position:center 65%;
   background-attachment:fixed;
 }
 /* Camada bg sticky usada SÓ no mobile (overrides em @media abaixo) */
@@ -459,8 +459,8 @@ section.sec{padding:7rem 0}
   padding-bottom:.4rem;
 }
 .golden .esp-grid:hover{animation-play-state:paused}
-.golden .esp-grid .esp-card{flex:0 0 240px}
-.esp-dup{display:flex!important}
+.golden .esp-grid .esp-card{flex:0 0 240px;display:block}
+/* .esp-dup herda mesmo display dos cards originais — sem override */
 .golden .esp-card{aspect-ratio:auto;background:rgba(20,16,14,.32);overflow:visible;box-shadow:0 22px 60px -28px rgba(0,0,0,.55);padding:.85rem;border-radius:24px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .golden .esp-card::after{display:none}
 .golden .esp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px}
@@ -478,7 +478,7 @@ section.sec{padding:7rem 0}
 @media(max-width:880px){
   .parallax-section{
     background-attachment:fixed;
-    background-position:center 28%;
+    background-position:center 55%;
   }
   .golden{background-image:url('assets/bg-esporte-mobile.jpg')!important}
   .cta-big-golden{background-image:url('assets/bg-cta-mobile.jpg')!important}
