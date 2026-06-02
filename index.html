@@ -81,7 +81,8 @@ h4{font-size:1.05rem;font-weight:600}
 .hero-copy .eyebrow{margin-bottom:1.6rem}
 .hero h1{margin-bottom:1.5rem}
 .hero h1 .hl{color:var(--roxo);font-family:var(--ff-editorial);font-style:italic;font-weight:500}
-.hero p.sub{font-size:1.18rem;color:var(--ink-soft);max-width:34rem;margin-bottom:2.2rem;line-height:1.55}
+.hero p.sub{font-size:1rem;color:var(--ink-soft);max-width:32rem;margin-bottom:2.2rem;line-height:1.6}
+@media(max-width:680px){.hero p.sub{font-size:.92rem;line-height:1.55}}
 .hero-actions{display:flex;gap:.9rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
 .hero-mini{display:flex;gap:2rem;flex-wrap:wrap}
 .hero-mini .m{display:flex;align-items:center;gap:.55rem;font-size:.9rem;color:var(--ink-soft);font-weight:500}
@@ -413,7 +414,7 @@ section.sec{padding:7rem 0}
 .golden{background-image:url('assets/bg-esporte-desktop.jpg')}
 .cta-big-golden{background-image:url('assets/bg-cta-desktop.jpg')}
 .parallax-section{
-  background-repeat:no-repeat;background-size:cover;background-position:center 18%;
+  background-repeat:no-repeat;background-size:cover;background-position:center 35%;
   background-attachment:fixed;
 }
 /* Camada bg sticky usada SÓ no mobile (overrides em @media abaixo) */
@@ -449,7 +450,8 @@ section.sec{padding:7rem 0}
 .golden .esp-card{aspect-ratio:auto;background:rgba(20,16,14,.32);overflow:visible;box-shadow:0 22px 60px -28px rgba(0,0,0,.55);padding:.85rem;border-radius:24px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .golden .esp-card::after{display:none}
 .golden .esp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px}
-.golden .esp-card .tag{position:static;display:block;text-align:center;margin-top:.85rem;color:#fff!important;font-family:var(--ff-display);font-weight:700;font-size:.92rem;letter-spacing:.02em}
+.golden .esp-card .tag{position:static;display:block;text-align:center;margin-top:.85rem;color:#fff!important;font-family:var(--ff-display);font-weight:700;font-size:.88rem;letter-spacing:.02em;white-space:nowrap;overflow:visible;padding:0 .25rem;line-height:1.2}
+@media(max-width:880px){.golden .esp-card .tag{font-size:.84rem;padding:0 .5rem}}
 
 /* Mobile: iOS Safari não suporta background-attachment:fixed.
    Truque: a section perde a background dela, e o .parallax-bg vira
@@ -462,7 +464,7 @@ section.sec{padding:7rem 0}
 @media(max-width:880px){
   .parallax-section{
     background-attachment:fixed;
-    background-position:center 12%;
+    background-position:center 28%;
   }
   .golden{background-image:url('assets/bg-esporte-mobile.jpg')!important}
   .cta-big-golden{background-image:url('assets/bg-cta-mobile.jpg')!important}
@@ -621,6 +623,7 @@ section.sec{padding:7rem 0}
           <div class="ad-item"><img src="assets/ad-7.jpg" alt="Antes e depois 7" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-8.jpg" alt="Antes e depois 8" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-9.jpg" alt="Antes e depois 9" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-10.jpg" alt="Depoimento — maratona em 3h26 com plano nutricional" loading="lazy"></div>
           <!-- duplicado pra loop suave -->
           <div class="ad-item"><img src="assets/ad-1.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-2.jpg" alt="" loading="lazy"></div>
@@ -631,6 +634,7 @@ section.sec{padding:7rem 0}
           <div class="ad-item"><img src="assets/ad-7.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-8.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-9.jpg" alt="" loading="lazy"></div>
+          <div class="ad-item"><img src="assets/ad-10.jpg" alt="" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -678,7 +682,7 @@ section.sec{padding:7rem 0}
       <article class="trat rv">
         <div class="trat-head-row">
           <div class="ic"><svg viewBox="0 0 24 24"><path d="M10 2v6L4 18h16L14 8V2"/><path d="M8 2h8"/></svg></div>
-          <h3>Nutrição para uso de análogos de GLP-1 (Mounjaro, Ozempic e similares)</h3>
+          <h3>Nutrição para uso de Mounjaro, Ozempic e similares</h3>
         </div>
         <p>Acompanhamento nutricional para potencializar resultados, preservar massa muscular, melhorar sintomas gastrointestinais e construir hábitos sustentáveis durante o tratamento medicamentoso.</p>
       </article>
