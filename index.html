@@ -134,10 +134,6 @@ section.sec{padding:7rem 0}
 .ad-track{display:flex;gap:1.2rem;animation:scrollX 50s linear infinite}
 .ad-track:hover{animation-play-state:paused}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
-/* Mobile: marquee mais rápido pra ter mesma sensação de movimento que no desktop (viewport menor) */
-@media(max-width:680px){
-  .ad-track{animation-duration:28s}
-}
 .ad-item{flex:0 0 440px;aspect-ratio:995/462;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#fff}
 .ad-item img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -335,10 +331,9 @@ section.sec{padding:7rem 0}
 /* esp-dup é controlado pelas regras .golden .esp-grid abaixo */
 
 @media(max-width:880px){
-  /* Esporte vira carrossel horizontal infinito — mobile com cards menores */
+  /* Esporte vira carrossel horizontal infinito — mobile com cards menores (velocidade mantida em 50s, igual desktop) */
   .golden .esp-grid{
     gap:1rem;
-    animation-duration:28s; /* mais rápido percebido no mobile (menor viewport) */
   }
   .golden .esp-grid .esp-card{flex:0 0 200px;aspect-ratio:auto}
   .golden .esp-card img{aspect-ratio:3/4}
@@ -641,7 +636,6 @@ section.sec{padding:7rem 0}
           <div class="ad-item"><img src="assets/ad-7.jpg" alt="Antes e depois 7" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-8.jpg" alt="Antes e depois 8" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-9.jpg" alt="Antes e depois 9" loading="lazy"></div>
-          <div class="ad-item"><img src="assets/ad-10.jpg" alt="Depoimento — maratona em 3h26 com plano nutricional" loading="lazy"></div>
           <!-- duplicado pra loop suave -->
           <div class="ad-item"><img src="assets/ad-1.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-2.jpg" alt="" loading="lazy"></div>
@@ -652,7 +646,6 @@ section.sec{padding:7rem 0}
           <div class="ad-item"><img src="assets/ad-7.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-8.jpg" alt="" loading="lazy"></div>
           <div class="ad-item"><img src="assets/ad-9.jpg" alt="" loading="lazy"></div>
-          <div class="ad-item"><img src="assets/ad-10.jpg" alt="" loading="lazy"></div>
         </div>
       </div>
     </div>
