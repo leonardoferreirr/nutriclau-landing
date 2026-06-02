@@ -134,6 +134,10 @@ section.sec{padding:7rem 0}
 .ad-track{display:flex;gap:1.2rem;animation:scrollX 50s linear infinite}
 .ad-track:hover{animation-play-state:paused}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
+/* Mobile: marquee mais rápido pra ter mesma sensação de movimento que no desktop (viewport menor) */
+@media(max-width:680px){
+  .ad-track{animation-duration:28s}
+}
 .ad-item{flex:0 0 440px;aspect-ratio:995/462;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#fff}
 .ad-item img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -328,21 +332,15 @@ section.sec{padding:7rem 0}
 @keyframes beam-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /* Esporte: duplicados só viram visíveis em mobile (marquee) */
-.esp-dup{display:none}
+/* esp-dup é controlado pelas regras .golden .esp-grid abaixo */
 
 @media(max-width:880px){
-  /* Esporte vira carrossel horizontal infinito dentro do container dourado */
+  /* Esporte vira carrossel horizontal infinito — mobile com cards menores */
   .golden .esp-grid{
-    display:flex!important;
-    grid-template-columns:none!important;
     gap:1rem;
-    width:max-content!important;
-    animation:espMarquee 28s linear infinite;
-    padding-bottom:.4rem;
+    animation-duration:28s; /* mais rápido percebido no mobile (menor viewport) */
   }
-  .golden .esp-grid:hover{animation-play-state:paused}
-  .esp-dup{display:block}
-  .golden .esp-card{flex:0 0 200px;aspect-ratio:auto}
+  .golden .esp-grid .esp-card{flex:0 0 200px;aspect-ratio:auto}
   .golden .esp-card img{aspect-ratio:3/4}
 
   /* Contato cards menores */
@@ -419,6 +417,19 @@ section.sec{padding:7rem 0}
 }
 /* Camada bg sticky usada SÓ no mobile (overrides em @media abaixo) */
 .parallax-bg{display:none}
+/* Faixa cream no topo da seção parallax — esconde a parte da imagem que
+   ficaria atrás do header (cabeça da Clau cortada). Altura = header height. */
+.parallax-section::after{
+  content:"";
+  position:absolute;top:0;left:0;right:0;
+  height:90px;
+  background:var(--paper);
+  z-index:3;
+  pointer-events:none;
+}
+@media(max-width:880px){
+  .parallax-section::after{height:76px}
+}
 .parallax-section::before{
   content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(28,18,12,.42) 0%,rgba(28,18,12,.32) 50%,rgba(28,18,12,.5) 100%);
@@ -446,7 +457,15 @@ section.sec{padding:7rem 0}
 }
 .glass-card:hover{transform:translateY(-6px);background:rgba(20,16,14,.46);box-shadow:0 30px 70px -25px rgba(0,0,0,.6)}
 
-.golden .esp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.golden .esp-grid{
+  display:flex;flex-wrap:nowrap;
+  gap:1.2rem;width:max-content;
+  animation:espMarquee 50s linear infinite;
+  padding-bottom:.4rem;
+}
+.golden .esp-grid:hover{animation-play-state:paused}
+.golden .esp-grid .esp-card{flex:0 0 240px}
+.esp-dup{display:flex!important}
 .golden .esp-card{aspect-ratio:auto;background:rgba(20,16,14,.32);overflow:visible;box-shadow:0 22px 60px -28px rgba(0,0,0,.55);padding:.85rem;border-radius:24px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .golden .esp-card::after{display:none}
 .golden .esp-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;border-radius:16px}
@@ -468,7 +487,6 @@ section.sec{padding:7rem 0}
   }
   .golden{background-image:url('assets/bg-esporte-mobile.jpg')!important}
   .cta-big-golden{background-image:url('assets/bg-cta-mobile.jpg')!important}
-  .parallax-bg{display:none}
 }
 
 /* iOS Safari ignora background-attachment:fixed. Pra iOS, .is-ios é
@@ -726,10 +744,12 @@ section.sec{padding:7rem 0}
       <div class="esp-card glass-card"><img src="assets/sp-2.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Hipertrofia</span></div>
       <div class="esp-card glass-card"><img src="assets/sp-3.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Endurance</span></div>
       <div class="esp-card glass-card"><img src="assets/sp-4.jpg" alt="Atleta acompanhada pela Clau" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">CrossFit</span></div>
+      <div class="esp-card glass-card"><img src="assets/sp-5.jpg" alt="Atleta acompanhada pela Clau — maratona" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Corrida</span></div>
       <div class="esp-card glass-card esp-dup"><img src="assets/sp-1.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Performance</span></div>
       <div class="esp-card glass-card esp-dup"><img src="assets/sp-2.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Hipertrofia</span></div>
       <div class="esp-card glass-card esp-dup"><img src="assets/sp-3.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Endurance</span></div>
       <div class="esp-card glass-card esp-dup"><img src="assets/sp-4.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">CrossFit</span></div>
+      <div class="esp-card glass-card esp-dup"><img src="assets/sp-5.jpg" alt="" loading="lazy" style="border-radius:18px"><span class="tag" style="color:var(--ink)">Corrida</span></div>
     </div>
   </div>
 </section>
