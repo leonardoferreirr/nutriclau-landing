@@ -132,14 +132,14 @@ section.sec{padding:7rem 0}
 .rede-link{display:inline-flex;align-items:center;gap:.45rem;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;color:var(--ink-soft);transition:color .3s}
 .rede-link:hover{color:var(--roxo)}
 .rede-link .mini-ic{width:14px;height:14px;flex-shrink:0;fill:currentColor;display:block}
-.ad-track{display:flex;gap:1.2rem;animation:scrollX 55s linear infinite}
+.ad-track{display:flex;gap:1.2rem;animation:scrollX 55s linear infinite;will-change:transform}
 @media (hover:hover){.ad-track:hover{animation-play-state:paused}}
-@media (max-width:880px){
-  .ad-track{animation-duration:16s!important}
-  .ad-item{flex:0 0 280px!important;border-radius:16px!important}
-}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
 .ad-item{flex:0 0 440px;aspect-ratio:995/462;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#fff}
+@media (max-width:880px){
+  .ad-track{animation:scrollX 9s linear infinite!important;animation-duration:9s!important}
+  .ad-item{flex:0 0 240px!important;border-radius:14px!important}
+}
 .ad-item img{width:100%;height:100%;object-fit:cover;display:block}
 /* mobile herda 55s do desktop = ~75 px/s, mesma velocidade a olho nu do esp-grid */
 
