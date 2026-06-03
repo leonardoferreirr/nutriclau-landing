@@ -132,9 +132,7 @@ section.sec{padding:7rem 0}
 .rede-link{display:inline-flex;align-items:center;gap:.45rem;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;color:var(--ink-soft);transition:color .3s}
 .rede-link:hover{color:var(--roxo)}
 .rede-link .mini-ic{width:14px;height:14px;flex-shrink:0;fill:currentColor;display:block}
-.ad-track{display:flex;gap:1.2rem;animation:scrollX 55s linear infinite;will-change:transform}
-@media (hover:hover){.ad-track:hover{animation-play-state:paused}}
-@keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
+.ad-track{display:flex;gap:1.2rem;will-change:transform;transform:translate3d(0,0,0)}
 .ad-item{flex:0 0 440px;aspect-ratio:995/462;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#fff}
 .ad-item img{width:100%;height:100%;object-fit:cover;display:block}
 /* mobile herda 55s do desktop = ~75 px/s, mesma velocidade a olho nu do esp-grid */
@@ -450,10 +448,8 @@ section.sec{padding:7rem 0}
 .golden .esp-grid{
   display:flex;flex-wrap:nowrap;align-items:flex-end;
   gap:1.4rem;width:max-content;
-  animation:espMarquee 40s linear infinite;
-  padding-bottom:.4rem;will-change:transform;
+  padding-bottom:.4rem;will-change:transform;transform:translate3d(0,0,0);
 }
-@media (hover:hover){.golden .esp-grid:hover{animation-play-state:paused}}
 .golden .esp-grid .esp-card{flex:0 0 260px;display:flex;flex-direction:column;align-items:center}
 .golden .esp-card{aspect-ratio:auto;background:transparent;overflow:visible;box-shadow:none;padding:0;border-radius:0;border:none;backdrop-filter:none;-webkit-backdrop-filter:none}
 .golden .esp-card::after{display:none}
@@ -1082,6 +1078,40 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   addEventListener('scroll', tick, {passive:true});
   addEventListener('resize', tick);
   tick();
+})();
+
+// MARQUEES VIA rAF — imune a Reduce Motion, low power, throttling iOS Safari
+(function(){
+  function startMarquee(el, speedPxPerSec){
+    if (!el) return;
+    let halfWidth = el.scrollWidth / 2;
+    function measure(){ halfWidth = el.scrollWidth / 2; }
+    addEventListener('resize', measure);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+    el.querySelectorAll('img').forEach(img => {
+      if (img.complete) return;
+      img.addEventListener('load', measure, {once:true});
+    });
+    setTimeout(measure, 800);
+    setTimeout(measure, 2000);
+    let pos = 0;
+    let last = performance.now();
+    function tick(now){
+      const dt = (now - last) / 1000;
+      last = now;
+      pos += speedPxPerSec * dt;
+      if (halfWidth > 0 && pos >= halfWidth) pos -= halfWidth;
+      el.style.transform = `translate3d(${-pos}px, 0, 0)`;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  function init(){
+    startMarquee(document.querySelector('.ad-track'), 75);
+    startMarquee(document.querySelector('.golden .esp-grid'), 75);
+  }
+  if (document.readyState === 'complete') init();
+  else addEventListener('load', init);
 })();
 
 </script>
