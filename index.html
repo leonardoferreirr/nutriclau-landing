@@ -133,7 +133,7 @@ section.sec{padding:7rem 0}
 .rede-link:hover{color:var(--roxo)}
 .rede-link .mini-ic{width:14px;height:14px;flex-shrink:0;fill:currentColor;display:block}
 .ad-track{display:flex;gap:1.2rem;animation:scrollX 55s linear infinite}
-.ad-track:hover{animation-play-state:paused}
+@media (hover:hover){.ad-track:hover{animation-play-state:paused}}
 @keyframes scrollX{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .6rem))}}
 .ad-item{flex:0 0 440px;aspect-ratio:995/462;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);position:relative;background:#fff}
 .ad-item img{width:100%;height:100%;object-fit:cover;display:block}
@@ -361,7 +361,7 @@ section.sec{padding:7rem 0}
 /* Marquee selos */
 .selos-marquee{padding:2rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);overflow:hidden}
 .selos-track{display:flex;gap:3.5rem;align-items:center;animation:scrollSelo 36s linear infinite;width:max-content}
-.selos-marquee:hover .selos-track{animation-play-state:paused}
+@media (hover:hover){.selos-marquee:hover .selos-track{animation-play-state:paused}}
 @keyframes scrollSelo{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 1.75rem))}}
 .selos-marquee .selo{display:flex;align-items:center;gap:.6rem;font-family:var(--ff-display);font-weight:600;font-size:.94rem;color:var(--ink);white-space:nowrap;flex-shrink:0}
 .selos-marquee .selo svg{width:20px;height:20px;stroke:var(--roxo);fill:none;stroke-width:2;flex-shrink:0}
@@ -452,7 +452,7 @@ section.sec{padding:7rem 0}
   animation:espMarquee 17s linear infinite;
   padding-bottom:.4rem;
 }
-.golden .esp-grid:hover{animation-play-state:paused}
+@media (hover:hover){.golden .esp-grid:hover{animation-play-state:paused}}
 .golden .esp-grid .esp-card{flex:0 0 auto;display:flex;flex-direction:column;align-items:center}
 .golden .esp-card{aspect-ratio:auto;background:transparent;overflow:visible;box-shadow:none;padding:0;border-radius:0;border:none;backdrop-filter:none;-webkit-backdrop-filter:none}
 .golden .esp-card::after{display:none}
